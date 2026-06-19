@@ -8,7 +8,18 @@ function GitHubIcon() {
   )
 }
 
+function LiveIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+      <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+    </svg>
+  )
+}
+
 function ProjectCard({ project }) {
+  const hasLive = project.demo && project.demo !== '#'
+
   return (
     <div className={`project-card${project.featured ? ' featured' : ''}`}>
       <div className="project-card-top">
@@ -24,9 +35,16 @@ function ProjectCard({ project }) {
           <span className="tag" key={tag}>{tag}</span>
         ))}
       </div>
-      <a href={project.github} className="project-link" target="_blank" rel="noreferrer">
-        <GitHubIcon /> View on GitHub →
-      </a>
+      <div className="project-links">
+        <a href={project.github} className="project-link" target="_blank" rel="noreferrer">
+          <GitHubIcon /> GitHub
+        </a>
+        {hasLive && (
+          <a href={project.demo} className="project-link project-link-live" target="_blank" rel="noreferrer">
+            <LiveIcon /> Live Demo
+          </a>
+        )}
+      </div>
     </div>
   )
 }
@@ -39,7 +57,7 @@ export default function Projects() {
     <section className="section" id="projects">
       <div className="container">
         <p className="section-label">03 / Work</p>
-        <h2 className="section-title">Selected projects</h2>
+        <h2 className="section-title">Selected Projects</h2>
 
         <div className="projects-featured">
           {featured.map(p => <ProjectCard key={p.id} project={p} />)}

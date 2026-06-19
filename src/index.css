@@ -556,6 +556,13 @@ body {
   margin-bottom: 12px;
 }
 
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
 .project-link {
   display: inline-flex;
   align-items: center;
@@ -564,11 +571,16 @@ body {
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
-  margin-top: 8px;
   transition: color 0.15s;
 }
 
 .project-link:hover { color: var(--accent); }
+
+.project-link-live {
+  color: var(--accent);
+}
+
+.project-link-live:hover { opacity: 0.75; }
 
 /* ─── SKILLS ─────────────────────────────────────────────── */
 .skills-grid {

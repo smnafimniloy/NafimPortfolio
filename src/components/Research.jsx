@@ -14,7 +14,7 @@ export default function Research() {
     <section className="section" id="research">
       <div className="container">
         <p className="section-label">02 / Research</p>
-        <h2 className="section-title">Research &amp; publications</h2>
+        <h2 className="section-title">Research &amp; Publications</h2>
 
         {/* Research positions */}
         <div className="research-grid">
