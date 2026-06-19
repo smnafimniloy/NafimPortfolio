@@ -1,3 +1,4 @@
+import { useReveal } from './hooks/useReveal'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Education from './components/Education'
@@ -10,6 +11,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 function App() {
+  useReveal()
   return (
     <>
       <Header />

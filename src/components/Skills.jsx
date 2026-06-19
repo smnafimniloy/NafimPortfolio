@@ -5,7 +5,7 @@ export default function Skills() {
     <section className="section" id="skills">
       <div className="container">
         <p className="section-label">05 / Stack</p>
-        <h2 className="section-title">Skills &amp; toolkit</h2>
+        <h2 className="section-title">Skills &amp; Toolkit</h2>
 
         <div className="skills-grid">
           {Object.entries(data.skills).map(([category, items]) => (
