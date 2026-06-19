@@ -3,7 +3,7 @@ export const data = {
   subtitle: "CS undergrad · Researcher",
   bio: "Final-year Computer Science undergraduate with hands-on research in heterogeneous graph neural networks, medical imaging, and Bengali NLP. Experienced in end-to-end ML pipelines, cross-cohort evaluation, and reproducible experimentation.",
   location: "Basundhara R/A, Dhaka",
-  email: "smnafimniloy@gmail.com",
+  email: "admin@nafim.dev",
   papers: 2,
   projectCount: "7+",
   repoCount: 24,
