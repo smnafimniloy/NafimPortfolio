@@ -159,7 +159,7 @@ export default function Repos() {
         <div className="repos-header">
           <span className="repos-count">
             {repoCount} public repositories
-            {fromCache && <span className="repos-cache-note"> · cached</span>}
+            {fromCache && <span className="repos-cache-note"> </span>}
             {error && <span className="repos-cache-note"> · showing cached data</span>}
           </span>
           <a href={data.github} className="repos-viewall" target="_blank" rel="noreferrer">
