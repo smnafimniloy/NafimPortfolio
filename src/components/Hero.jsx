@@ -45,7 +45,9 @@ export default function Hero() {
               Open to research opportunities
             </div>
 
-            <h1 className="hero-name">{data.name}</h1>
+            <h1 className="hero-name">
+              <span className="hero-name-gradient">{data.name}</span>
+            </h1>
             <p className="hero-subtitle">{data.subtitle}</p>
             <p className="hero-bio">{data.bio}</p>
 
