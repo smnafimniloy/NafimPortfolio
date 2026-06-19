@@ -9,7 +9,7 @@ export const data = {
   repoCount: 24,
   github: "https://github.com/smnafimniloy",
   linkedin: "https://linkedin.com/in/nafimniloy",
-  resume: "https://drive.google.com/drive/u/1/folders/1-ZnapxN2YPjhJSRwdrjZSBp7Cf-BtB-V",
+  resume: "https://drive.google.com/file/d/1KhTnOR8jCDZnXsGVK3w1JoizyV6HiHS1/view?usp=sharing",
 
   education: [
     {
