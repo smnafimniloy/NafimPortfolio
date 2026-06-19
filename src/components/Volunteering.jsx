@@ -4,7 +4,7 @@ export default function Volunteering() {
   return (
     <section className="section" id="volunteering">
       <div className="container">
-        <p className="section-label">07 / Community</p>
+        <p className="section-label">06 / Community</p>
         <h2 className="section-title">Volunteering &amp; Leadership</h2>
 
         <div className="vol-grid">

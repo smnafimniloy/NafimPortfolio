@@ -29,7 +29,7 @@ export default function Contact() {
     <section className="contact" id="contact">
       <div className="container">
         <div className="contact-body">
-          <p className="section-label">06 / Reach Out</p>
+          <p className="section-label">07 / Reach Out</p>
           <h2 className="section-title">Let's talk research</h2>
 
           <div className="contact-quote">

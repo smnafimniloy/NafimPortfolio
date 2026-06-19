@@ -153,7 +153,7 @@ export default function Repos() {
   return (
     <section className="section" id="repos">
       <div className="container">
-        <p className="section-label">05 / Code</p>
+        <p className="section-label">04 / Code</p>
         <h2 className="section-title">GitHub Repositories</h2>
 
         <div className="repos-header">

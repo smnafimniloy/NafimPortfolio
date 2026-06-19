@@ -20,9 +20,50 @@
   --tag-text: #374151;
   --radius: 8px;
   --max-w: 960px;
+  color-scheme: light;
 }
 
-html { scroll-behavior: smooth; }
+[data-theme="dark"] {
+  --accent: #4d84ff;
+  --accent-hover: #6b9bff;
+  --accent-light: #0d1f40;
+  --text-primary: #efefef;
+  --text-secondary: #a0a0aa;
+  --text-tertiary: #606068;
+  --bg: #0c0c0c;
+  --bg-secondary: #161616;
+  --border: #242424;
+  --tag-bg: #1c1c1c;
+  --tag-text: #c4c4cc;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.25s ease;
+}
+
+/* smooth theme transition on key surfaces */
+body,
+.header,
+.hero-card,
+.research-card,
+.edu-card,
+.vol-card,
+.project-card,
+.repo-card,
+.contact-quote,
+.mobile-nav,
+.tag,
+.pub-icon,
+.pub-doi,
+.btn-resume,
+.btn-outline {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.15s ease;
+}
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -850,6 +891,67 @@ body {
   font-size: 12px;
   color: var(--text-tertiary);
   margin-left: 4px;
+}
+
+/* ─── THEME TOGGLE ───────────────────────────────────────── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  background: var(--tag-bg);
+}
+
+/* ─── DARK MODE OVERRIDES ────────────────────────────────── */
+
+/* header glass */
+[data-theme="dark"] .header {
+  background: rgba(12, 12, 12, 0.96);
+}
+
+/* mobile nav */
+[data-theme="dark"] .mobile-nav {
+  background: var(--bg);
+  border-top-color: var(--border);
+}
+
+[data-theme="dark"] .mobile-nav nav a {
+  border-bottom-color: var(--border);
+}
+
+/* featured badge (amber) */
+[data-theme="dark"] .featured-badge {
+  background: #2a1f00;
+  color: #d4a560;
+}
+
+/* pub conference badge light bg */
+[data-theme="dark"] .pub-conference {
+  background: var(--accent-light);
+}
+
+/* skeleton shimmer */
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(90deg, #1a1a1a 25%, #262626 50%, #1a1a1a 75%);
+  background-size: 600px 100%;
+}
+
+/* hamburger lines */
+[data-theme="dark"] .hamburger span {
+  background: var(--text-primary);
 }
 
 /* ─── HAMBURGER ──────────────────────────────────────────── */
