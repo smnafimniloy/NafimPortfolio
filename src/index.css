@@ -1039,7 +1039,6 @@ body {
 @media (max-width: 768px) {
   /* Header */
   .nav { display: none; }
-  .btn-resume { display: none; }
 
   /* Section spacing */
   .section { padding: 52px 0; }
