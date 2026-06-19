@@ -4,8 +4,7 @@ import { data } from '../data'
 function useTheme() {
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('theme')
-    if (saved) return saved
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    return saved || 'light'
   })
 
   useEffect(() => {

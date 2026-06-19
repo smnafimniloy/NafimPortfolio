@@ -78,7 +78,6 @@ body,
 .project-card,
 .repo-card,
 .contact-quote,
-.mobile-nav,
 .tag,
 .pub-icon,
 .pub-doi,
@@ -1076,20 +1075,22 @@ body {
 
 /* Mobile nav drawer */
 .mobile-nav {
-  display: none;
   position: fixed;
   inset: 60px 0 0 0;
   background: var(--bg);
   border-top: 1px solid var(--border);
-  z-index: 99;
+  z-index: 9999;
   overflow-y: auto;
+  visibility: hidden;
   opacity: 0;
   transform: translateY(-8px);
   pointer-events: none;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease,
+    background-color 0.25s ease;
 }
 
 .mobile-nav.is-open {
+  visibility: visible;
   opacity: 1;
   transform: translateY(0);
   pointer-events: all;
@@ -1133,7 +1134,6 @@ body {
   /* Header */
   .nav { display: none; }
   .hamburger { display: flex; }
-  .mobile-nav { display: block; }
   .btn-resume { display: none; }
 
   /* Section spacing */
