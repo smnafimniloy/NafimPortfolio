@@ -74,7 +74,7 @@ export const data = {
       description:
         "Trained a 100M parameter LLM specifically for Bangla with a custom tokenizer with 16,000 vocabulary.",
       tags: ["Python", "Streamlit", "Hugging Face"],
-      github: "https://github.com/smnafimniloy",
+      github: "https://github.com/smnafimniloy/banglallmDemo",
       demo: "https://demobanglallm.streamlit.app/",
       featured: true,
       icon: "🤖",
@@ -86,7 +86,7 @@ export const data = {
       description:
         "End-to-end RAG-based AI tutor for SSC students using Bengali textbooks with progress tracking.",
       tags: ["FastAPI", "OCR", "PHP", "LangChain"],
-      github: "https://github.com/smnafimniloy",
+      github: "https://github.com/smnafimniloy/edu-tutorBD",
       demo: "#",
       featured: false,
       icon: "📚",
@@ -98,7 +98,7 @@ export const data = {
       description:
         "Fine-tuned ResNet50 to classify 10 animal species. Achieved 96.59% validation accuracy via transfer learning and data augmentation.",
       tags: ["Python", "PyTorch", "Flask", "Streamlit"],
-      github: "https://github.com/smnafimniloy",
+      github: "https://github.com/smnafimniloy/animal_image_classification_ResNet50",
       demo: "https://animalimageclassificationresnet50-gyvtphv5nivq8wbtedsgcu.streamlit.app/",
       featured: true,
       icon: "🐾",
@@ -110,7 +110,7 @@ export const data = {
       description:
         "Web app with MVC architecture, role-based access for Admin, Manager, and Customer with full CRUD for menus and inventory.",
       tags: ["PHP", "MySQL", "JavaScript"],
-      github: "https://github.com/smnafimniloy",
+      github: "https://github.com/smnafimniloy/SmartCafe",
       featured: false,
       icon: "☕",
       category: "Web",
@@ -121,7 +121,7 @@ export const data = {
       description:
         "Complete exploratory data analysis covering data cleaning, transformation, statistical computation, and visualization.",
       tags: ["Python", "pandas", "Matplotlib"],
-      github: "https://github.com/smnafimniloy",
+      github: "https://github.com/smnafimniloy/TitanicProjectDataScience",
       featured: false,
       icon: "📊",
       category: "AI / NLP",
@@ -132,7 +132,7 @@ export const data = {
       description:
         "Desktop food cart ordering app with role-based access for Admin, Cart Owner, and Customer built on .NET.",
       tags: ["C#", "MySQL", ".NET"],
-      github: "https://github.com/smnafimniloy",
+      github: "https://github.com/smnafimniloy/YumYard_",
       featured: false,
       icon: "🍔",
       category: "Web",
