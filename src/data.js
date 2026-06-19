@@ -1,8 +1,9 @@
 export const data = {
   name: "S M Nafim Niloy",
-  subtitle: "CS undergrad · Researcher",
-  bio: "Final-year Computer Science undergraduate with hands-on research in heterogeneous graph neural networks, medical imaging, and Bengali NLP. Experienced in end-to-end ML pipelines, cross-cohort evaluation, and reproducible experimentation.",
-  location: "Basundhara R/A, Dhaka",
+  subtitle: "CSE undergrad · Researcher",
+  bio: "Final-year Computer Science & Engineering undergraduate with hands-on research in heterogeneous graph neural networks, medical imaging, and Bengali NLP. Experienced in end-to-end ML pipelines, cross-cohort evaluation, and reproducible experimentation.",
+  headshot: "",   // set to "/headshot.jpg" once you place your photo in portfolio/public/
+  location: "Dhaka, Bangladesh 🇧🇩",
   email: "admin@nafim.dev",
   papers: 2,
   projectCount: "7+",

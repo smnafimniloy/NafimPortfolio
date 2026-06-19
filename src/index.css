@@ -288,6 +288,21 @@ body {
   overflow: hidden;
 }
 
+.hero-avatar-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+}
+
 .hero-card-body { padding: 20px 20px 0; }
 
 .contact-item {

@@ -64,6 +64,15 @@ export default function Hero() {
 
           {/* Right card */}
           <div className="hero-card">
+            {data.headshot && (
+              <div className="hero-avatar-wrap">
+                <img
+                  src={data.headshot}
+                  alt={`${data.name} headshot`}
+                  className="hero-avatar"
+                />
+              </div>
+            )}
             <div className="hero-card-body">
               <div className="contact-item">
                 <span className="contact-icon"><IconLocation /></span>
