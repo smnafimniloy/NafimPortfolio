@@ -77,7 +77,7 @@ export default function Hero() {
           <div>
             <div className="hero-badge">
               <span className="badge-dot" />
-              Open to research opportunities
+              Open to research & job opportunities
             </div>
 
             <h1 className="hero-name">
