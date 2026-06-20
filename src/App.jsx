@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom'
 import { useReveal } from './hooks/useReveal'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -9,12 +10,13 @@ import Repos from './components/Repos'
 import Volunteering from './components/Volunteering'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 
-function App() {
+function Portfolio() {
   useReveal()
   return (
     <>
-      <Header />
       <main>
         <Hero />
         <Education />
@@ -25,6 +27,19 @@ function App() {
         <Volunteering />
         <Contact />
       </main>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+      </Routes>
       <Footer />
     </>
   )

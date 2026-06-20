@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { data } from '../data'
 
 function useTheme() {
@@ -41,22 +42,29 @@ function SunIcon() {
 
 export default function Header() {
   const [theme, toggleTheme] = useTheme()
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   return (
     <header className="header">
       <div className="container">
         <div className="header-inner">
-          <a href="#" className="logo">
+          <Link to="/" className="logo">
             nafim<span>.dev</span>
-          </a>
+          </Link>
 
           <ul className="nav">
-            <li><a href="#education">Education</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#repos">Repos</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+            {isHome ? (
+              <>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#repos">Repos</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </>
+            ) : null}
+            <li><Link to="/blog" className={location.pathname.startsWith('/blog') ? 'nav-active' : ''}>Blog</Link></li>
           </ul>
 
           <div className="header-right">
@@ -67,6 +75,12 @@ export default function Header() {
             >
               {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
             </button>
+            <Link
+              to="/blog"
+              className={`btn-blog-mobile${location.pathname.startsWith('/blog') ? ' nav-active' : ''}`}
+            >
+              Blog
+            </Link>
             <a href={data.resume} className="btn-resume">Resume</a>
           </div>
         </div>
