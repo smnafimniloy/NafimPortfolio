@@ -1,7 +1,7 @@
 export const data = {
   name: "S M Nafim Niloy",
-  subtitle: "CSE undergrad · Researcher",
-  bio: "Final-year Computer Science & Engineering undergraduate with hands-on research in heterogeneous graph neural networks, medical imaging, and Bengali NLP. Experienced in end-to-end ML pipelines, cross-cohort evaluation, and reproducible experimentation.",
+  subtitle: "CSE undergrad · Researcher · AI Engineer",
+  bio: "Final-year Computer Science & Engineering undergraduate with hands-on research in heterogeneous graph neural networks, medical imaging, computer vision and NLP. Experienced in end-to-end ML pipelines, cross-cohort evaluation, and reproducible experimentation.",
   headshot: "",   // set to "/headshot.jpg" once you place your photo in portfolio/public/
   location: "Dhaka, Bangladesh 🇧🇩",
   email: "admin@nafim.dev",
@@ -36,7 +36,7 @@ export const data = {
       title: "Cross-Cohort Generalization of Heterogeneous Graph Neural Networks for Glioma Grading Using TCGA and CGGA Genomic Cohorts",
       description:
         "Investigating cross-cohort generalization of heterogeneous GNNs for glioma grading using TCGA and CGGA genomic cohorts.",
-      tags: ["GNN", "Graph Neural Networks", "Medical Imaging", "PyTorch", "Python"],
+      tags: ["GNN", "Graph Neural Networks", "PyTorch", "Python"],
     },
     {
       role: "NLP Research",
@@ -44,8 +44,8 @@ export const data = {
       // period: "Apr 2026 – Present",
       title: "BanglaLLM — Custom Transformer Language Model",
       description:
-        "Developing a custom transformer-based language model for Bangla text generation trained on a Bangla corpus with a custom-built tokenizer (16K vocabulary).",
-      tags: ["NLP", "Transformers", "LLM", "Bangla", "Hugging Face"],
+        "Developing a custom transformer-based language model for Bangla text generation trained on a Bangla corpus with a custom-built tokenizer.",
+      tags: ["NLP", "Transformers", "LLM", "Bangla"],
     },
   ],
 

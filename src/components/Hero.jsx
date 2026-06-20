@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react'
 import { data } from '../data'
 
 function IconLocation() {
@@ -16,7 +17,6 @@ function IconMail() {
   )
 }
 
-
 function IconGitHub() {
   return (
     <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
@@ -31,6 +31,41 @@ function IconLinkedIn() {
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
     </svg>
   )
+}
+
+// Count-up number animation
+function CountUp({ to, suffix = '', duration = 1200, delay = 400 }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const target = parseInt(to) || 0
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      observer.disconnect()
+
+      let startTime = null
+
+      function tick(now) {
+        if (!startTime) startTime = now + delay
+        const elapsed = Math.max(0, now - startTime)
+        const progress = Math.min(elapsed / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        setCount(Math.round(eased * target))
+        if (progress < 1) requestAnimationFrame(tick)
+      }
+
+      requestAnimationFrame(tick)
+    }, { threshold: 0.6 })
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [target, duration, delay])
+
+  return <span ref={ref}>{count}{suffix}</span>
 }
 
 export default function Hero() {
@@ -53,7 +88,7 @@ export default function Hero() {
 
             <div className="hero-actions">
               <a href="#projects" className="btn-primary">
-                View Projects →
+                View Projects &rarr;
               </a>
               <a href={data.github} className="btn-outline" target="_blank" rel="noreferrer">
                 <IconGitHub /> GitHub
@@ -89,15 +124,21 @@ export default function Hero() {
             <div className="hero-stats">
               <div className="stat">
                 <div className="stat-label">Papers</div>
-                <div className="stat-value">{data.papers}</div>
+                <div className="stat-value">
+                  <CountUp to={data.papers} duration={900} delay={500} />
+                </div>
               </div>
               <div className="stat">
                 <div className="stat-label">Projects</div>
-                <div className="stat-value">{data.projectCount}</div>
+                <div className="stat-value">
+                  <CountUp to={parseInt(data.projectCount)} suffix="+" duration={1000} delay={600} />
+                </div>
               </div>
               <div className="stat">
                 <div className="stat-label">Repos</div>
-                <div className="stat-value">{data.repoCount}+</div>
+                <div className="stat-value">
+                  <CountUp to={data.repoCount} suffix="+" duration={1100} delay={700} />
+                </div>
               </div>
             </div>
           </div>

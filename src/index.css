@@ -15,13 +15,13 @@
   --text-tertiary: #9ca3af;
   --bg: #ffffff;
   --bg-secondary: #f9fafb;
-  --border: #e5e7eb;
+  --border: #e8ddd5;
   --tag-bg: #f3f4f6;
   --tag-text: #374151;
   --radius: 8px;
   --max-w: 960px;
-  --card-bg: rgba(255, 255, 255, 0.72);
-  --card-bg-secondary: rgba(249, 250, 251, 0.72);
+  --card-bg: linear-gradient(145deg, #ffffff 0%, #fff6ee 100%);
+  --card-bg-secondary: linear-gradient(145deg, #fffaf6 0%, #fff2e6 100%);
   color-scheme: light;
 }
 
@@ -34,11 +34,11 @@
   --text-tertiary: #606068;
   --bg: #0c0c0c;
   --bg-secondary: #161616;
-  --border: #242424;
+  --border: #2a2018;
   --tag-bg: #1c1c1c;
   --tag-text: #c4c4cc;
-  --card-bg: rgba(18, 18, 20, 0.72);
-  --card-bg-secondary: rgba(22, 22, 26, 0.72);
+  --card-bg: linear-gradient(145deg, #161412 0%, #1e1810 100%);
+  --card-bg-secondary: linear-gradient(145deg, #1a1713 0%, #231d12 100%);
   color-scheme: dark;
 }
 
@@ -63,6 +63,11 @@ html {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nameWipe {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
 }
 
 .hero-badge    { animation: fadeUp 0.5s ease 0.05s both; }
@@ -98,12 +103,12 @@ body {
   font-size: 15px;
   line-height: 1.6;
   color: var(--text-primary);
-  background: linear-gradient(135deg, #ffffff 0%, #e8f0ff 50%, #f0fff8 100%) fixed;
+  background: linear-gradient(135deg, #ffffff 0%, #fde8c8 50%, #fff5e8 100%) fixed;
   -webkit-font-smoothing: antialiased;
 }
 
 [data-theme="dark"] body {
-  background: linear-gradient(135deg, #0c0c0c 0%, #0d1a33 50%, #001a12 100%) fixed;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1d1005 50%, #120b02 100%) fixed;
 }
 
 .container {
@@ -229,10 +234,12 @@ body {
 }
 
 .hero-name-gradient {
+  display: inline-block;
   background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: nameWipe 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
 }
 
 .hero-subtitle {
@@ -1002,7 +1009,7 @@ body {
 
 .skeleton {
   border-radius: 4px;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background: linear-gradient(90deg, #f5ede5 25%, #e8d8cc 50%, #f5ede5 75%);
   background-size: 600px 100%;
   animation: shimmer 1.4s infinite linear;
 }
@@ -1061,7 +1068,7 @@ body {
 
 /* skeleton shimmer */
 [data-theme="dark"] .skeleton {
-  background: linear-gradient(90deg, #1a1a1a 25%, #262626 50%, #1a1a1a 75%);
+  background: linear-gradient(90deg, #1e1a16 25%, #2a2218 50%, #1e1a16 75%);
   background-size: 600px 100%;
 }
 
