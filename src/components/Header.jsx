@@ -44,12 +44,20 @@ export default function Header() {
   const [theme, toggleTheme] = useTheme()
   const location = useLocation()
   const isHome = location.pathname === '/'
+  const isBlog = location.pathname.startsWith('/blog')
+
+  function handleLogoClick(e) {
+    if (isHome) {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   return (
     <header className="header">
       <div className="container">
         <div className="header-inner">
-          <Link to="/" className="logo">
+          <Link to="/" className="logo" onClick={handleLogoClick}>
             nafim<span>.dev</span>
           </Link>
 
@@ -63,8 +71,10 @@ export default function Header() {
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
               </>
-            ) : null}
-            <li><Link to="/blog" className={location.pathname.startsWith('/blog') ? 'nav-active' : ''}>Blog</Link></li>
+            ) : (
+              <li><Link to="/">Home</Link></li>
+            )}
+            <li><Link to="/blog" className={isBlog ? 'nav-active' : ''}>Blog</Link></li>
           </ul>
 
           <div className="header-right">
@@ -77,7 +87,7 @@ export default function Header() {
             </button>
             <Link
               to="/blog"
-              className={`btn-blog-mobile${location.pathname.startsWith('/blog') ? ' nav-active' : ''}`}
+              className={`btn-blog-mobile${isBlog ? ' nav-active' : ''}`}
             >
               Blog
             </Link>
