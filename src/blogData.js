@@ -8,7 +8,7 @@ export const blogPosts = [
     slug: 'weekend-at-kaptai-lake',
     title: 'A Weekend at Kaptai Lake',
     date: '2026-05-10',
-    cover: '',  // e.g. "/blog/kaptai.jpg"
+    cover: './blog/rangamatiSunset.webp',  // e.g. "/blog/kaptai.jpg"
     excerpt: 'Leaving Dhaka behind for a few days, I found myself on a wooden boat gliding across Kaptai Lake — the largest artificial lake in Bangladesh — surrounded by mist, green hills, and an unexpected kind of quiet.',
     tags: ['Travel', 'Bangladesh', 'Life'],
     content: `

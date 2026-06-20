@@ -12,6 +12,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
+import NotFound from './pages/NotFound'
 
 function Portfolio() {
   useReveal()
@@ -39,6 +40,7 @@ function App() {
         <Route path="/" element={<Portfolio />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
