@@ -30,7 +30,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-inner">
           <p className="footer-copy">
-            &copy; {new Date().getFullYear()} S M Nafim Niloy. Built with React &amp; Vite. Hosted on github action.
+            &copy; {new Date().getFullYear()} S M Nafim Niloy. Built with React &amp; Vite. Hosted on github.
           </p>
           <div className="footer-socials">
             <a href={data.github} className="footer-social" target="_blank" rel="noreferrer" aria-label="GitHub">
