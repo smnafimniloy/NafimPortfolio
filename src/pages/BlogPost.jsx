@@ -1,8 +1,28 @@
+import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { blogPosts } from '../blogData'
 
 function formatDate(iso) {
   return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+}
+
+function normaliseCover(cover) {
+  if (!cover) return ''
+  return cover.startsWith('/') ? cover : `/${cover}`
+}
+
+function PostCover({ cover, alt }) {
+  const [failed, setFailed] = useState(false)
+  const src = normaliseCover(cover)
+
+  if (!src || failed) {
+    return <div className="blog-post-cover blog-post-cover--placeholder" />
+  }
+  return (
+    <div className="blog-post-cover">
+      <img src={src} alt={alt} onError={() => setFailed(true)} />
+    </div>
+  )
 }
 
 export default function BlogPost() {
@@ -28,11 +48,7 @@ export default function BlogPost() {
         <Link to="/blog" className="blog-back">← Back to blog</Link>
 
         <article className="blog-post">
-          {post.cover && (
-            <div className="blog-post-cover">
-              <img src={post.cover} alt={post.title} />
-            </div>
-          )}
+          <PostCover cover={post.cover} alt={post.title} />
 
           <header className="blog-post-header">
             <div className="blog-card-tags" style={{ marginBottom: '12px' }}>
