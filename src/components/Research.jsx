@@ -44,7 +44,14 @@ export default function Research() {
             <div className="pub-item" key={i}>
               <div className="pub-icon">📄</div>
               <div className="pub-content">
-                <p className="pub-title">{pub.title}</p>
+                <div className="pub-title-row">
+                  <p className="pub-title">{pub.title}</p>
+                  {pub.status && (
+                    <span className={`pub-status pub-status--${pub.status.toLowerCase().replace(/\s+/g, '-')}`}>
+                      {pub.status}
+                    </span>
+                  )}
+                </div>
                 <div className="pub-meta">
 
                   {/* Conference badge — links out if conferenceLink is set */}

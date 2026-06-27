@@ -154,7 +154,7 @@ export default function Repos() {
     <section className="section" id="repos">
       <div className="container">
         <p className="section-label">04 / Code</p>
-        <h2 className="section-title">GitHub Repositories</h2>
+        <h2 className="section-title">Recent Works</h2>
 
         <div className="repos-header">
           <span className="repos-count">

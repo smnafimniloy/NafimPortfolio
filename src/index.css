@@ -522,12 +522,66 @@ body {
 
 .pub-content { flex: 1; }
 
+.pub-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
 .pub-title {
   font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 0;
+  flex: 1;
 }
+
+/* Publication status badge */
+.pub-status {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+
+.pub-status--published {
+  background: #dcfce7;
+  color: #15803d;
+}
+.pub-status--accepted {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+.pub-status--under-review {
+  background: #fef9c3;
+  color: #a16207;
+}
+.pub-status--submitted {
+  background: #f3e8ff;
+  color: #7e22ce;
+}
+.pub-status--in-preparation {
+  background: #f1f5f9;
+  color: #475569;
+}
+.pub-status--presented {
+  background: #fff0f6;
+  color: #be185d;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] .pub-status--published   { background: #14532d; color: #86efac; }
+[data-theme="dark"] .pub-status--accepted    { background: #1e3a5f; color: #93c5fd; }
+[data-theme="dark"] .pub-status--under-review { background: #422006; color: #fde68a; }
+[data-theme="dark"] .pub-status--submitted   { background: #3b0764; color: #d8b4fe; }
+[data-theme="dark"] .pub-status--in-preparation { background: #1e293b; color: #94a3b8; }
+[data-theme="dark"] .pub-status--presented      { background: #4a0d2e; color: #f9a8d4; }
 
 .pub-meta {
   display: flex;

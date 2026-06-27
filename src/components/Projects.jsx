@@ -57,7 +57,7 @@ export default function Projects() {
     <section className="section" id="projects">
       <div className="container">
         <p className="section-label">03 / Work</p>
-        <h2 className="section-title">Selected Projects</h2>
+        <h2 className="section-title">Highlighted Projects</h2>
 
         <div className="projects-featured">
           {featured.map(p => <ProjectCard key={p.id} project={p} />)}

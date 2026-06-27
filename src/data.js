@@ -1,13 +1,13 @@
 export const data = {
   name: "S M Nafim Niloy",
   subtitle: "CSE undergrad · Researcher · AI Engineer",
-  bio: "Final-year Computer Science & Engineering undergraduate with hands-on research in heterogeneous graph neural networks, medical imaging, computer vision and NLP. Experienced in end-to-end ML pipelines, cross-cohort evaluation, and reproducible experimentation.",
+  bio: "Final-year Computer Science and Engineering undergraduate with research experience in graph neural networks, computer vision, medical imaging, and natural language processing, seeking opportunities to apply machine learning and software engineering skills in a professional setting. Experienced in end-to-end ML pipelines, full-stack development, and reproducible experimentation, with co-authored peer-reviewed publications.",
   headshot: "",   // set to "/headshot.jpg" once you place your photo in portfolio/public/
   location: "Dhaka, Bangladesh 🇧🇩",
   email: "admin@nafim.dev",
   papers: 2,
-  projectCount: "7+",
-  repoCount: 24,
+  projectCount: 10,
+  repoCount: 30,
   github: "https://github.com/smnafimniloy",
   linkedin: "https://linkedin.com/in/nafimniloy",
   resume: "https://drive.google.com/file/d/1ei7MAoKtN7nivHENXBqIWHhKoPbZOqXD/view?usp=sharing",
@@ -21,7 +21,7 @@ export const data = {
     },
     {
       institution: "Dhaka College",
-      degree: "Higher Secondary Certificate (Science)",
+      degree: "Higher Secondary Certificate",
       location: "Dhaka, Bangladesh",
       // period: "Jun 2018 – Feb 2020",
       // grade: "GPA: 5.0 / 5.0",
@@ -33,9 +33,9 @@ export const data = {
       role: "Undergraduate Thesis",
       institution: "American International University-Bangladesh",
       // period: "Nov 2025 – Present",
-      title: "Cross-Cohort Generalization of Heterogeneous Graph Neural Networks for Glioma Grading Using TCGA and CGGA Genomic Cohorts",
+      title: "Do Heterogeneous Graph Neural Networks Improve Cross-Cohort Glioma Grading? A TCGA-CGGA Benchmark with Graph Ablation and Explainability",
       description:
-        "Investigating cross-cohort generalization of heterogeneous GNNs for glioma grading using TCGA and CGGA genomic cohorts.",
+        "Benchmarking heterogeneous graph neural networks against tabular baselines for cross-cohort glioma grading across TCGA and CGGA genomic datasets, with graph ablation and explainability analysis.",
       tags: ["GNN", "Graph Neural Networks", "PyTorch", "Python"],
     },
     {
@@ -54,16 +54,18 @@ export const data = {
       title:
         "Explainable Machine Learning of Texture Signatures in Pancreatic Cancer via Leakage-Safe Radiomics and Rule Mining",
       conference: "ICEFronT",
-      conferenceLink: "https://icefront.mbstu.ac.bd/",   
-      doi: "",               
+      conferenceLink: "https://icefront.mbstu.ac.bd/",
+      doi: "",
+      status: "Accepted",   // e.g. Published · Accepted · Under Review · Submitted · In Preparation . Presented
       tags: ["Python", "Radiomics", "Medical Imaging"],
     },
     {
       title:
         "Commuting Pattern and Challenges Among Students in Dhaka City: An Analysis for Sustainable Urban Mobility",
       conference: "ICMAE 2025",
-      conferenceLink: "https://conference.iium.edu.my/icmae/2024/",   
-      doi: "",              
+      conferenceLink: "https://conference.iium.edu.my/icmae/2024/",
+      doi: "",
+      status: "Presented",   // e.g. Published · Accepted · Under Review · Submitted · In Preparation . Presented
       tags: ["Python", "scikit-learn", "Data Analysis"],
     },
   ],
@@ -156,7 +158,7 @@ export const data = {
     Frameworks: ["React", "Django", "FastAPI"],
     "ML / AI": ["GNN", "NLP", "Computer Vision", "RAG", "LLMs", "GAN"],
     Databases: ["PostgreSQL", "MySQL", "ChromaDB"],
-    Tools: ["Git", "VS Code", "Visual Studio", "PyCharm", "Jupyter Notebook"],
+    Tools: ["Git", "Linux", "VS Code", "Visual Studio", "PyCharm", "Jupyter Notebook"],
     Libraries: ["PyTorch", "TensorFlow", "scikit-learn", "Transformers", "pandas", "NumPy"],
   },
 

@@ -25,7 +25,7 @@ function Portfolio() {
         <Projects />
         <Repos />
         <Skills />
-        <Volunteering />
+        {/* <Volunteering /> */}
         <Contact />
       </main>
     </>

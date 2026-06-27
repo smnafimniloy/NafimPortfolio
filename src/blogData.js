@@ -19,7 +19,7 @@ export const blogPosts = [
 <p>Kaptai Lake stretches across <strong>roughly 680 square kilometres</strong>, formed in 1960 when the Kaptai Dam was built on the Karnaphuli River. It's enormous — you can stand at the water's edge and genuinely not see the other side. That morning it was half-swallowed by mist, which made everything feel a little unreal.</p>
 
 <h2>Out on the Water</h2>
-<p>We hired a wooden engine boat and a local guide named Sujon, who knew the lake the way I know the bus routes in Dhaka — intuitively, without thinking. We spent most of the morning drifting through narrow channels where the hills close in on both sides and the water turns dark green.</p>
+<p>We hired a wooden engine boat and a local guide, who knew the lake the way I know the bus routes in Dhaka — intuitively, without thinking. We spent most of the morning drifting through narrow channels where the hills close in on both sides and the water turns dark green.</p>
 <blockquote>There's a specific kind of silence you get when the engine cuts out and you're just floating — hills on every side, no city noise, no notifications. I wasn't expecting to find it so disarming.</blockquote>
 <p>We passed Chakma and Marma fishing villages built on stilts over the water's edge. Sujon pointed out a half-submerged temple — old Rangamati town, he said, now 30 feet below the lake. That detail stuck with me. Entire villages displaced when the dam was built, whole histories underneath the water.</p>
 
