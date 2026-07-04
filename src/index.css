@@ -1300,6 +1300,79 @@ body {
   justify-content: center;
 }
 
+/* ─── VIDEO RESUME ───────────────────────────────────────── */
+.video-resume-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin: -8px 0 24px;
+}
+
+.video-resume-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+.video-resume-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Thumbnail + play button (shown before clicking) */
+.video-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: #000;
+}
+
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.video-thumb:hover img {
+  transform: scale(1.02);
+}
+
+.video-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.video-thumb:hover .video-play-btn {
+  opacity: 0.85;
+}
+
+.video-resume-yt-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.video-resume-yt-link:hover { color: var(--accent); }
+
 /* ─── BLOG ───────────────────────────────────────────────── */
 .blog-page {
   min-height: calc(100vh - 64px);
