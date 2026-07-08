@@ -21,7 +21,7 @@ function Portfolio() {
     <>
       <main>
         <Hero />
-        <VideoResume />
+        { /* <VideoResume /> */}
         <Education />
         <Research />
         <Projects />
