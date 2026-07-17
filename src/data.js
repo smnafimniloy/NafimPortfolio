@@ -2,7 +2,7 @@ export const data = {
   name: "S M Nafim Niloy",
   subtitle: "CSE undergrad · Researcher · AI Engineer",
   bio: "Final-year Computer Science and Engineering undergraduate with research experience in graph neural networks, computer vision, medical imaging, and natural language processing, seeking opportunities to apply machine learning and software engineering skills in a professional setting. Experienced in end-to-end ML pipelines, full-stack development, and reproducible experimentation, with co-authored peer-reviewed publications.",
-  headshot: "headshot.png",   // headshot.png set to "/headshot.jpg" once you place your photo in portfolio/public/
+  headshot: "",   // headshot.png set to "/headshot.jpg" once you place your photo in portfolio/public/
   location: "Dhaka, Bangladesh 🇧🇩",
   email: "admin@nafim.dev",
   papers: 2,
