@@ -1,13 +1,13 @@
 export const data = {
   name: "S M Nafim Niloy",
   subtitle: "CSE undergrad · Researcher · AI Engineer",
-  bio: "Final-year Computer Science and Engineering undergraduate with research experience in graph neural networks, computer vision, medical imaging, and natural language processing, seeking opportunities to apply machine learning and software engineering skills in a professional setting. Experienced in end-to-end ML pipelines, full-stack development, and reproducible experimentation, with co-authored peer-reviewed publications.",
+  bio: "Computer Science and Engineering undergraduate with research experience in graph neural networks, computer vision, medical imaging, and natural language processing, seeking opportunities to apply machine learning and software engineering skills in a professional setting. Experienced in end-to-end ML pipelines, full-stack development, and reproducible experimentation.",
   headshot: "",   // headshot.png set to "/headshot.jpg" once you place your photo in portfolio/public/
   location: "Dhaka, Bangladesh 🇧🇩",
   email: "admin@nafim.dev",
   papers: 2,
-  projectCount: 10,
-  repoCount: 30,
+  projectCount: 15,
+  repoCount: 40,
   github: "https://github.com/smnafimniloy",
   linkedin: "https://linkedin.com/in/nafimniloy",
   resume: "https://drive.google.com/file/d/1ei7MAoKtN7nivHENXBqIWHhKoPbZOqXD/view?usp=sharing",
@@ -36,7 +36,7 @@ export const data = {
     {
       role: "Undergraduate Thesis",
       institution: "American International University-Bangladesh",
-      // period: "Nov 2025 – Present",
+      // period: "Nov 2025 – Aug 26",
       title: "Do Heterogeneous Graph Neural Networks Improve Cross-Cohort Glioma Grading? A TCGA-CGGA Benchmark with Graph Ablation and Explainability",
       description:
         "Benchmarking heterogeneous graph neural networks against tabular baselines for cross-cohort glioma grading across TCGA and CGGA genomic datasets, with graph ablation and explainability analysis.",
