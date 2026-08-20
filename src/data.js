@@ -5,7 +5,7 @@ export const data = {
   headshot: "",   // headshot.png set to "/headshot.jpg" once you place your photo in portfolio/public/
   location: "Dhaka, Bangladesh 🇧🇩",
   email: "admin@nafim.dev",
-  papers: 2,
+  papers: 1,
   projectCount: 15,
   repoCount: 40,
   github: "https://github.com/smnafimniloy",
@@ -54,15 +54,15 @@ export const data = {
   ],
 
   publications: [
-    {
-      title:
-        "Explainable Machine Learning of Texture Signatures in Pancreatic Cancer via Leakage-Safe Radiomics and Rule Mining",
-      conference: "ICEFronT",
-      conferenceLink: "https://icefront.mbstu.ac.bd/",
-      doi: "",
-      status: "Accepted",   // e.g. Published · Accepted · Under Review · Submitted · In Preparation . Presented
-      tags: ["Python", "Radiomics", "Medical Imaging"],
-    },
+    // {
+    //   title:
+    //     "Explainable Machine Learning of Texture Signatures in Pancreatic Cancer via Leakage-Safe Radiomics and Rule Mining",
+    //   conference: "ICEFronT",
+    //   conferenceLink: "https://icefront.mbstu.ac.bd/",
+    //   doi: "",
+    //   status: "Accepted",   // e.g. Published · Accepted · Under Review · Submitted · In Preparation . Presented
+    //   tags: ["Python", "Radiomics", "Medical Imaging"],
+    // },
     {
       title:
         "Commuting Pattern and Challenges Among Students in Dhaka City: An Analysis for Sustainable Urban Mobility",
@@ -71,6 +71,15 @@ export const data = {
       doi: "",
       status: "Presented",   // e.g. Published · Accepted · Under Review · Submitted · In Preparation . Presented
       tags: ["Python", "scikit-learn", "Data Analysis"],
+    },
+    {
+      title:
+      "Do Heterogeneous Graph Neural Networks Improve Cross-Cohort Glioma Grading? A TCGA-CGGA Benchmark with Graph Ablation and Explainability",
+      conference: "NetMAHIB",
+      conferenceLink: 'https://link.springer.com/journal/13721',
+      doi: '',
+      status: "Under Review",
+      tags: ["GNN", "Graph Neural Networks", "PyTorch", "Python"],
     },
   ],
 
