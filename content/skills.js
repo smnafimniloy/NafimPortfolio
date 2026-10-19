@@ -2,7 +2,7 @@
 // "Group name": ["skill", "skill", ...]. Add or rename groups freely.
 
 export const skills = {
-  Languages: ["Java", "Python", "C/C++", "C#", "JavaScript", "PHP", "R", "HTML/CSS"],
+  Languages: ["Java", "Python", "C/C++", "C#", "JavaScript", "PHP", "R", "HTML/CSS", "Rust"],
   Frameworks: ["React", "Django", "FastAPI"],
   "ML / AI": ["GNN", "NLP", "Computer Vision", "RAG", "LLMs", "GAN"],
   Databases: ["PostgreSQL", "MySQL", "ChromaDB"],
