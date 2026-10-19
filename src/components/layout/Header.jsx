@@ -6,6 +6,11 @@ import { List, X, ArrowUpRight } from '../ui/icons'
 
 const navSections = site.sections.filter(s => s.show && s.nav)
 
+// Logo text comes from the site address: "https://nafim.dev" → "nafim" + ".dev"
+const host = site.url.replace(/^https?:\/\//, '').replace(/\/.*$/, '')
+const dot = host.lastIndexOf('.')
+const [logoName, logoTld] = dot > 0 ? [host.slice(0, dot), host.slice(dot)] : [host, '']
+
 export default function Header() {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
@@ -24,7 +29,7 @@ export default function Header() {
     <header className={`header${open ? ' header--open' : ''}`}>
       <div className="container header__inner">
         <Link to="/" className="logo" onClick={handleLogoClick}>
-          nafim<span>.dev</span>
+          {logoName}<span>{logoTld}</span>
         </Link>
 
         <nav className="nav" aria-label="Main">

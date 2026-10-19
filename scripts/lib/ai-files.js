@@ -105,3 +105,25 @@ export function llmsFullTxt() {
     ]) : []),
   ].join('\n')
 }
+
+// robots.txt: welcome search engines and AI assistants, point them at the sitemap.
+export function robotsTxt() {
+  const bots = [
+    'Googlebot', 'Bingbot', 'DuckDuckBot', 'YandexBot', 'Applebot',
+    'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot',
+    'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended',
+    'CCBot', 'meta-externalagent',
+  ]
+  return [
+    `# ${new URL(site.url).host}: search engines and AI assistants are welcome to read and index this site.`,
+    '',
+    'User-agent: *',
+    'Allow: /',
+    '',
+    ...bots.map(b => `User-agent: ${b}`),
+    'Allow: /',
+    '',
+    `Sitemap: ${abs('/sitemap.xml')}`,
+    '',
+  ].join('\n')
+}

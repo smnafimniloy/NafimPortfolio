@@ -17,11 +17,18 @@ OUT = ROOT / "public" / "og-image.jpg"
 PAPER, SUNK, INK, CLAY, MOSS, MUTED, LINE = "#F4EFE6", "#EAE2D3", "#1F1B16", "#A84A28", "#5E6B3A", "#5C5347", "#D6CCBA"
 
 
-def content_value(key: str) -> str:
-    """Read a simple `key: "value"` from content/profile.js (no JS runtime needed)."""
-    text = (ROOT / "content" / "profile.js").read_text(encoding="utf-8")
+def content_value(key: str, file: str = "profile.js") -> str:
+    """Read a simple `key: "value"` from a content/*.js file (no JS runtime needed)."""
+    text = (ROOT / "content" / file).read_text(encoding="utf-8")
     match = re.search(rf'^\s*{key}:\s*"([^"]*)"', text, re.M)
     return match.group(1) if match else ""
+
+
+def interests(limit: int = 3) -> list[str]:
+    """First few entries of `interests: [...]` in content/profile.js."""
+    text = (ROOT / "content" / "profile.js").read_text(encoding="utf-8")
+    block = re.search(r"interests:\s*\[(.*?)\]", text, re.S)
+    return re.findall(r'"([^"]+)"', block.group(1))[:limit] if block else []
 
 
 def font(family: str, file: str, size: int) -> ImageFont.FreeTypeFont:
@@ -32,6 +39,8 @@ def main():
     name = content_value("name")
     subtitle = content_value("subtitle")
     headshot = content_value("headshot")
+    availability = content_value("availability")
+    host = re.sub(r"^https?://|/.*$", "", content_value("url", "site.js"))
 
     img = Image.new("RGB", (1200, 630), PAPER)
     draw = ImageDraw.Draw(img)
@@ -47,8 +56,9 @@ def main():
     mono_b = font("space-mono", "space-mono-latin-700-normal.woff", 22)
 
     # status line
-    draw.ellipse((80, 112, 96, 128), fill=MOSS)
-    draw.text((112, 104), "OPEN TO RESEARCH & JOB OPPORTUNITIES", font=mono_b, fill=MOSS)
+    if availability:
+        draw.ellipse((80, 112, 96, 128), fill=MOSS)
+        draw.text((112, 104), availability.upper(), font=mono_b, fill=MOSS)
 
     # name: last word in terracotta italic
     *first, last = name.split(" ")
@@ -64,9 +74,12 @@ def main():
 
     draw.text((80, y), subtitle, font=mono, fill=MUTED)
     draw.line((80, 520, 1120, 520), fill=LINE, width=2)
-    draw.text((80, 545), "nafim.dev", font=mono_b, fill=INK)
-    draw.text((1120 - draw.textlength("GNNs · Medical imaging · Bengali NLP", font=mono_b), 545),
-              "GNNs · Medical imaging · Bengali NLP", font=mono_b, fill=MUTED)
+    draw.text((80, 545), host, font=mono_b, fill=INK)
+    topics = interests()
+    while topics and draw.textlength(" · ".join(topics), font=mono_b) > 1040 - draw.textlength(host, font=mono_b) - 60:
+        topics.pop()  # drop topics until the line fits
+    tagline = " · ".join(topics)
+    draw.text((1120 - draw.textlength(tagline, font=mono_b), 545), tagline, font=mono_b, fill=MUTED)
 
     # avatar on a paper disc
     if headshot:

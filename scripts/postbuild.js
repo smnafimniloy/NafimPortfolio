@@ -12,7 +12,7 @@ import { resolve } from 'node:path'
 import { site, profile, posts, routes } from './lib/data.js'
 import { headTags, homeJsonLd, blogJsonLd, postJsonLd } from './lib/seo.js'
 import { sitemapXml, rssXml } from './lib/feeds.js'
-import { llmsTxt, llmsFullTxt } from './lib/ai-files.js'
+import { llmsTxt, llmsFullTxt, robotsTxt } from './lib/ai-files.js'
 
 const { render } = await import(pathToFileURL(resolve('dist-ssr/entry-server.js')).href)
 const template = readFileSync('dist/index.html', 'utf8')
@@ -77,6 +77,14 @@ write('/404.html', page('/404/', headTags({
 write('/sitemap.xml', sitemapXml())
 write('/llms.txt', llmsTxt())
 write('/llms-full.txt', llmsFullTxt())
+write('/robots.txt', robotsTxt())
+
+// Custom domain (GitHub Pages reads it from Settings → Pages; this keeps the build self-describing).
+const host = new URL(site.url).host
+if (!host.endsWith('github.io')) write('/CNAME', `${host}\n`)
+
+// IndexNow proves you own the site by serving the key at /<key>.txt
+if (site.seo.indexNowKey) write(`/${site.seo.indexNowKey}.txt`, site.seo.indexNowKey)
 
 rmSync('dist-ssr', { recursive: true, force: true })
 
