@@ -1,69 +1,39 @@
-import { useState } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { blogPosts } from '../blogData'
-
-function formatDate(iso) {
-  return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
-
-function normaliseCover(cover) {
-  if (!cover) return ''
-  return cover.startsWith('/') ? cover : `/${cover}`
-}
-
-function PostCover({ cover, alt }) {
-  const [failed, setFailed] = useState(false)
-  const src = normaliseCover(cover)
-
-  if (!src || failed) {
-    return <div className="blog-post-cover blog-post-cover--placeholder" />
-  }
-  return (
-    <div className="blog-post-cover">
-      <img src={src} alt={alt} onError={() => setFailed(true)} />
-    </div>
-  )
-}
+import { profile } from '@content/profile'
+import { getPost, renderMarkdown } from '../lib/blog'
+import { formatDate } from '../lib/format'
+import Tags from '../components/ui/Tags'
+import { ArrowLeft } from '../components/ui/icons'
+import Cover from '../components/ui/Cover'
+import NotFound from './NotFound'
 
 export default function BlogPost() {
   const { slug } = useParams()
-  const post = blogPosts.find(p => p.slug === slug)
+  const post = getPost(slug)
+  const html = useMemo(() => (post ? renderMarkdown(post.body) : ''), [post])
 
-  if (!post) {
-    return (
-      <div className="blog-page">
-        <div className="container">
-          <div className="blog-not-found">
-            <h1>Post not found</h1>
-            <Link to="/blog" className="blog-back">← Back to blog</Link>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  useEffect(() => {
+    if (post) document.title = `${post.title} · ${profile.name}`
+    window.scrollTo(0, 0)
+  }, [post])
+
+  if (!post) return <NotFound />
 
   return (
-    <div className="blog-page">
+    <main className="page">
       <div className="container">
-        <Link to="/blog" className="blog-back">← Back to blog</Link>
-
-        <article className="blog-post">
-          <PostCover cover={post.cover} alt={post.title} />
-
-          <header className="blog-post-header">
-            <div className="blog-card-tags" style={{ marginBottom: '12px' }}>
-              {post.tags.map(t => <span className="tag" key={t}>{t}</span>)}
-            </div>
-            <h1 className="blog-post-title">{post.title}</h1>
-            <p className="blog-post-date">{formatDate(post.date)}</p>
+        <Link to="/blog/" className="back"><ArrowLeft size={16} /> All posts</Link>
+        <article className="post">
+          <header className="post__head">
+            <Tags items={post.tags} accent />
+            <h1 className="post__title">{post.title}</h1>
+            <p className="post__date">{formatDate(post.date)}</p>
           </header>
-
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          {post.cover && <Cover src={post.cover} alt="" className="post__cover" />}
+          <div className="prose" dangerouslySetInnerHTML={{ __html: html }} />
         </article>
       </div>
-    </div>
+    </main>
   )
 }

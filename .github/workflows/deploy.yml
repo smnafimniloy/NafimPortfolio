@@ -1,47 +1,98 @@
-name: Deploy to GitHub Pages
+name: Build & Deploy
 
+# Everything the site needs happens here. You only push to `main`.
+#   • push to main        → check + build + deploy
+#   • pull request        → check + build only (nothing is published)
+#   • every day 03:00 UTC → rebuild so the GitHub repos section stays fresh
+#   • manual "Run workflow" button in the Actions tab
 on:
   push:
     branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 22
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+          cache: pip
 
-      - name: Build
+      - name: Install dependencies
+        run: |
+          npm ci
+          pip install -r requirements.txt
+
+      - name: Lint code
+        run: npm run lint
+
+      - name: Lint DESIGN.md
+        run: npm run lint:design
+
+      - name: Check image sizes
+        run: python tools/optimize_images.py --check
+
+      - name: Build (fetch GitHub repos, prerender pages, SEO tags, sitemap, RSS, llms.txt)
         run: npm run build
         env:
-          VITE_GITHUB_TOKEN: ${{ secrets.VITE_GITHUB_TOKEN }}
+          # Built-in token; used only at build time, never shipped to the browser.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/configure-pages@v4
+      - name: Check SEO output
+        run: |
+          for f in dist/index.html dist/blog/index.html dist/sitemap.xml dist/robots.txt dist/llms.txt dist/og-image.jpg; do
+            test -s "$f" || { echo "::error::$f is missing"; exit 1; }
+          done
+          grep -q 'application/ld+json' dist/index.html || { echo "::error::structured data missing"; exit 1; }
+          grep -q '<h1' dist/index.html || { echo "::error::home page was not prerendered"; exit 1; }
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+        if: github.event_name != 'pull_request'
+
+      - uses: actions/upload-pages-artifact@v5
+        if: github.event_name != 'pull_request'
         with:
           path: dist
 
-      - name: Deploy
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+
+      # Tell Bing, Yandex & other IndexNow engines about the new content.
+      # Only on real pushes (not the daily refresh), and it never blocks a deploy.
+      - uses: actions/checkout@v7
+        if: github.event_name == 'push'
+      - name: Ping IndexNow
+        if: github.event_name == 'push'
+        continue-on-error: true
+        run: node scripts/indexnow.js

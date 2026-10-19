@@ -1,0 +1,74 @@
+/* All motion lives here. Loops are slow and seamless; everything stops
+   under prefers-reduced-motion (see the bottom of this file). */
+
+/* Loop: scrolling interests strip. Track holds the list twice, so -50% = one copy. */
+.marquee__track { animation: marquee 40s linear infinite; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Loop: rotating circular badge */
+.badge__ring { animation: spin 22s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Loop: organic blob behind the hero */
+.hero__blob { animation: blob 18s ease-in-out infinite alternate; }
+@keyframes blob {
+  0%   { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: translate(0, 0) rotate(0deg); }
+  33%  { border-radius: 58% 42% 38% 62% / 55% 38% 62% 45%; transform: translate(-4%, 6%) rotate(40deg); }
+  66%  { border-radius: 37% 63% 52% 48% / 62% 57% 43% 38%; transform: translate(3%, -4%) rotate(80deg); }
+  100% { border-radius: 50% 50% 41% 59% / 44% 61% 39% 56%; transform: translate(-2%, 2%) rotate(120deg); }
+}
+
+/* Loop: headshot floats gently */
+.hero__photo img { animation: float 6s ease-in-out infinite; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-5px) rotate(-2deg); }
+}
+
+/* Loop: a dot travels down the schooling timeline */
+.timeline::after { animation: travel 6s ease-in-out infinite; }
+@keyframes travel {
+  0%   { top: 8px; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: calc(100% - 8px); opacity: 0; }
+}
+
+/* Loop: breathing availability dot */
+.pulse-dot::after { animation: breathe 2.4s ease-out infinite; }
+@keyframes breathe {
+  0%   { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Once: reveal on scroll */
+.will-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.will-reveal.is-revealed { opacity: 1; transform: none; }
+
+/* Once: hero intro stagger */
+.hero__copy > * { animation: rise 0.6s var(--ease) both; }
+.hero__copy > *:nth-child(2) { animation-delay: 0.08s; }
+.hero__copy > *:nth-child(3) { animation-delay: 0.16s; }
+.hero__copy > *:nth-child(4) { animation-delay: 0.24s; }
+.hero__copy > *:nth-child(5) { animation-delay: 0.32s; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html { scroll-behavior: auto; }
+  .will-reveal { opacity: 1; transform: none; }
+}

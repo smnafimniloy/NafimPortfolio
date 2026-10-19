@@ -1,0 +1,182 @@
+/* ── Buttons ──────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  padding: 12px 22px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--ink);
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s var(--ease);
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--primary { background: var(--ink); color: var(--paper); }
+.btn--primary:hover { background: var(--clay); border-color: var(--clay); color: var(--surface); }
+.btn--outline { background: transparent; color: var(--ink); }
+.btn--outline:hover { background: var(--ink); color: var(--paper); }
+.btn--sm { padding: 8px 16px; font-size: 0.75rem; }
+
+/* ── Text links ───────────────────────────── */
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.link:hover, .link--accent { color: var(--clay); border-color: var(--clay); }
+
+/* ── Cards ────────────────────────────────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-md);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: var(--s-lg);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+  border-color: #C9BDA7;
+}
+
+.card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-xs) var(--s-md);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.card__meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+.card__title { font-size: 1.375rem; line-height: 1.3; }
+.card__text { color: var(--muted); }
+
+/* ── Tags & status ────────────────────────── */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: var(--surface-sunk);
+  color: var(--ink);
+  border-radius: var(--r-full);
+  padding: 4px 12px;
+  width: fit-content;
+}
+.tag--accent { background: var(--clay-soft); color: var(--clay); }
+
+.status {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--moss);
+  color: var(--surface);
+  border-radius: var(--r-full);
+  padding: 3px 10px;
+}
+.status--under-review, .status--submitted, .status--in-preparation {
+  background: transparent;
+  color: var(--moss);
+  box-shadow: inset 0 0 0 1px var(--moss);
+}
+
+.bullets { display: grid; gap: var(--s-sm); color: var(--muted); }
+.bullets li { padding-left: 20px; position: relative; }
+.bullets li::before { content: '✦'; position: absolute; left: 0; color: var(--clay); font-size: 0.7rem; top: 5px; }
+
+/* ── Marquee strip ────────────────────────── */
+.marquee {
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+  padding: 18px 0;
+  margin-top: var(--s-2xl);
+  transform: rotate(-1.2deg);
+  width: 104%;
+  margin-left: -2%;
+}
+.marquee__track { display: flex; width: max-content; }
+.marquee__row { display: flex; flex-shrink: 0; }
+.marquee__row li {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+.marquee__sep { color: var(--clay); margin: 0 28px; font-size: 1rem; }
+
+/* ── Rotating badge ───────────────────────── */
+.badge {
+  position: absolute;
+  top: -54px;
+  right: -28px;
+  width: 132px;
+  height: 132px;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+.badge__ring { position: absolute; inset: 0; width: 100%; height: 100%; }
+.badge__ring text {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: var(--ink);
+}
+.badge__core {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--clay);
+  color: var(--surface);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1;
+  padding-right: 2px;
+}
+
+@media (max-width: 719px) {
+  .badge { width: 104px; height: 104px; top: -44px; right: -6px; }
+  .badge__core { width: 42px; height: 42px; font-size: 1.4rem; }
+}
+
+/* ── Availability dot ─────────────────────── */
+.pulse-dot {
+  position: relative;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--moss);
+  display: inline-block;
+}
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1.5px solid var(--moss);
+}

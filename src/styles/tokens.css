@@ -1,0 +1,50 @@
+/* Design tokens. Keep in sync with DESIGN.md (the source of truth).
+   Single light theme only, no dark mode. */
+:root {
+  /* Colours */
+  --ink: #1F1B16;            /* primary */
+  --paper: #F4EFE6;          /* neutral, page background */
+  --surface: #FBF8F2;        /* cards */
+  --surface-sunk: #EAE2D3;   /* chips, code */
+  --moss: #5E6B3A;           /* secondary */
+  --clay: #A84A28;           /* tertiary accent */
+  --clay-soft: #F8ECE4;
+  --muted: #5C5347;
+  --line: #D6CCBA;
+
+  /* Type */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lato', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Shape */
+  --r-sm: 4px;
+  --r-md: 10px;
+  --r-lg: 18px;
+  --r-full: 9999px;
+
+  /* Spacing */
+  --s-xs: 4px;
+  --s-sm: 8px;
+  --s-md: 16px;
+  --s-lg: 24px;
+  --s-xl: 40px;
+  --s-2xl: 64px;
+  --s-section: 120px;
+  --container: 1120px;
+  --gutter: 16px;
+
+  /* Depth & motion */
+  --shadow-lift: 0 14px 30px -18px rgba(31, 27, 22, 0.35);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: light;
+}
+
+@media (min-width: 720px) {
+  :root { --gutter: 24px; }
+}
+
+@media (max-width: 719px) {
+  :root { --s-section: 72px; }
+}

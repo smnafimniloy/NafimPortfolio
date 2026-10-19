@@ -1,0 +1,79 @@
+.page { padding-top: var(--s-xl); }
+.page__head { margin: var(--s-lg) 0 var(--s-xl); max-width: 720px; }
+
+.back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted);
+}
+.back:hover { color: var(--clay); }
+
+.empty { font-family: var(--font-mono); color: var(--muted); }
+
+/* Cards on /blog */
+.post-card { padding: var(--s-md); }
+.post-card .card__title { font-size: 1.3rem; }
+.post-card__cover {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.post-card__cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
+.post-card:hover .post-card__cover img { transform: scale(1.04); }
+
+.cover--placeholder {
+  background:
+    repeating-linear-gradient(135deg, transparent 0 12px, rgba(31, 27, 22, 0.05) 12px 13px),
+    var(--surface-sunk);
+}
+
+/* Single post */
+.post { max-width: 720px; margin: var(--s-xl) auto 0; }
+.post__head { display: grid; gap: var(--s-md); margin-bottom: var(--s-xl); }
+.post__head .tags { margin-top: 0; }
+.post__title { font-size: clamp(2.25rem, 6vw, 3.5rem); line-height: 1.08; }
+.post__date { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); }
+.post__cover {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-bottom: var(--s-xl);
+}
+.post__cover img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Markdown body */
+.prose { font-size: 1.125rem; line-height: 1.8; }
+.prose > * + * { margin-top: 1.25em; }
+.prose h2 { font-size: 1.75rem; margin-top: 2em; }
+.prose h3 { font-size: 1.35rem; margin-top: 1.6em; }
+.prose a { color: var(--clay); border-bottom: 1px solid currentColor; }
+.prose strong { font-weight: 700; }
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li + li { margin-top: 0.4em; }
+.prose li::marker { color: var(--clay); }
+.prose blockquote {
+  margin: 2em 0;
+  padding: 0 0 0 var(--s-lg);
+  border-left: 2px solid var(--clay);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--surface-sunk);
+  padding: 2px 6px;
+  border-radius: var(--r-sm);
+}
+.prose pre {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--s-md);
+  border-radius: var(--r-md);
+  overflow-x: auto;
+}
+.prose pre code { background: none; padding: 0; }
+.prose img { border-radius: var(--r-md); }

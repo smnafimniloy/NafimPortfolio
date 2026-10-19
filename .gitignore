@@ -1,40 +1,64 @@
-# Dependencies
+# ─── Dependencies ─────────────────────────────
 node_modules/
 
-# Build output
+# ─── Build output (GitHub Actions builds the site) ───
 dist/
 dist-ssr/
+*.tsbuildinfo
 
-# Environment & secrets
+# Generated at build time by scripts/fetch-github.js
+src/generated/
+
+# ─── Secrets & environment ────────────────────
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
+*.local
 
-# Logs
+# ─── Python (penv + tools/) ───────────────────
+penv/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# ─── Original, full-size images ───────────────
+# Keep big originals on your computer only. Commit the small .webp that
+# `python tools/optimize_images.py` produces, and point content/ at that.
+public/headshot.png
+public/blog/rangamatiSunset.webp
+*.psd
+*.ai
+*.xcf
+*.raw
+*.heic
+*.HEIC
+
+# ─── Claude / AI tooling (local only) ─────────
+.claude/
+graphify-out/
+
+# ─── Caches & logs ────────────────────────────
+.vite/
+.eslintcache
+.cache/
+coverage/
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-# Vite cache
-.vite/
-
-# OS
+# ─── OS ───────────────────────────────────────
 .DS_Store
 Thumbs.db
+Desktop.ini
 
-# Editor
+# ─── Editors ──────────────────────────────────
 .vscode/*
 !.vscode/extensions.json
 .idea/
 *.suo
-*.ntvs*
-*.njsproj
-*.sln
 *.sw?
-
-# Local overrides
-*.local
+*~

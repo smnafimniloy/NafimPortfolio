@@ -1,0 +1,3 @@
+# Python helpers for this repo (the website itself is Node/Vite).
+# Install inside the penv:  source ../penv/bin/activate && pip install -r requirements.txt
+pillow==13.0.0   # tools/optimize_images.py: resize + convert photos to WebP

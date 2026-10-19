@@ -1,76 +1,43 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { blogPosts } from '../blogData'
-
-function formatDate(iso) {
-  return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
-
-function CalendarIcon() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-    </svg>
-  )
-}
-
-// Ensure cover paths are absolute (start with /) so they resolve correctly
-// from any nested route like /blog/some-slug
-function normaliseCover(cover) {
-  if (!cover) return ''
-  return cover.startsWith('/') ? cover : `/${cover}`
-}
-
-function CoverImage({ cover, alt }) {
-  const [failed, setFailed] = useState(false)
-  const src = normaliseCover(cover)
-
-  if (!src || failed) {
-    return <div className="blog-card-cover blog-card-cover--placeholder" />
-  }
-  return (
-    <div className="blog-card-cover">
-      <img src={src} alt={alt} onError={() => setFailed(true)} />
-    </div>
-  )
-}
+import { profile } from '@content/profile'
+import { posts } from '../lib/blog'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
+import { formatDate } from '../lib/format'
+import Tags from '../components/ui/Tags'
+import Cover from '../components/ui/Cover'
+import { ArrowLeft, CalendarBlank } from '../components/ui/icons'
 
 export default function Blog() {
-  const sorted = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date))
-
+  useDocumentTitle(`Blog · ${profile.name}`)
   return (
-    <div className="blog-page">
+    <main className="page">
       <div className="container">
-        <div className="blog-header">
-          <Link to="/" className="blog-back">← Back to portfolio</Link>
-          <p className="section-label">Writing</p>
-          <h1 className="blog-page-title">Blog</h1>
-          <p className="blog-page-subtitle">Thoughts on ML research, engineering, and things I'm learning.</p>
-        </div>
+        <Link to="/" className="back"><ArrowLeft size={16} /> Back to portfolio</Link>
+        <header className="page__head">
+          <p className="section__label">Writing</p>
+          <h1 className="section__title">The <em>blog</em></h1>
+          <p className="section__intro">Thoughts on ML research, engineering, and things I'm learning.</p>
+        </header>
 
-        {sorted.length === 0 ? (
-          <p className="blog-empty">No posts yet — check back soon.</p>
+        {posts.length === 0 ? (
+          <p className="empty">No posts yet. Check back soon.</p>
         ) : (
-          <div className="blog-grid">
-            {sorted.map(post => (
-              <Link to={`/blog/${post.slug}`} className="blog-card" key={post.id}>
-                <CoverImage cover={post.cover} alt={post.title} />
-                <div className="blog-card-body">
-                  <div className="blog-card-meta">
-                    <CalendarIcon />
-                    <span>{formatDate(post.date)}</span>
-                  </div>
-                  <h2 className="blog-card-title">{post.title}</h2>
-                  <p className="blog-card-excerpt">{post.excerpt}</p>
-                  <div className="blog-card-tags">
-                    {post.tags.map(t => <span className="tag" key={t}>{t}</span>)}
-                  </div>
-                </div>
+          <div className="grid grid--3">
+            {posts.map(post => (
+              <Link to={`/blog/${post.slug}/`} className="card post-card" key={post.slug}>
+                <Cover src={post.cover} alt="" className="post-card__cover" />
+                <p className="card__meta">
+                  <span><CalendarBlank size={14} /> {formatDate(post.date)}</span>
+                  {post.draft && <span className="status">Draft</span>}
+                </p>
+                <h2 className="card__title">{post.title}</h2>
+                <p className="card__text">{post.excerpt}</p>
+                <Tags items={post.tags} />
               </Link>
             ))}
           </div>
         )}
       </div>
-    </div>
+    </main>
   )
 }
