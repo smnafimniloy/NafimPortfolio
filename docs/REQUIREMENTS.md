@@ -24,7 +24,7 @@ by editing plain text files and pushing to GitHub.
   buttons for Projects, GitHub, LinkedIn. Optional headshot (illustrated avatar, shown uncropped).
   The papers stat counts only real papers (see F4) unless a number is typed in `profile.js`.
 - **F2 Interests marquee:** endless scrolling strip of research interests from `content/profile.js`.
-- **F3 Sections:** Video resume, Education, Research & publications, Projects, Code (GitHub repos),
+- **F3 Sections:** Experience, Education, Research & publications, Projects, Code (GitHub repos),
   Skills, Volunteering, Contact. Each one can be shown/hidden and reordered in `content/site.js`
   without touching code. Section numbers update automatically.
 - **F4 Publications:** title, type (Journal/Conference), venue (optional link), status badge, optional
@@ -109,9 +109,8 @@ Everything runs in `.github/workflows/deploy.yml`. Nothing is built or uploaded 
 | Interests marquee | loop | 40s linear, pauses on hover |
 | Rotating "open to opportunities" badge | loop | 22s linear |
 | Education timeline travelling dot | loop | 6s ease-in-out |
-| Hero blob | loop | 18s ease-in-out, alternate |
 | Availability dot | loop | 2.4s breathe |
-| Headshot float | loop | 6s ease-in-out |
+| Headshot breathe (slow zoom) | loop | 8s ease-in-out |
 | Section reveal | once | 0.7s fade-up |
 | Hero text intro | once | 0.6s staggered |
 | Stats count-up | once | 1.2s |

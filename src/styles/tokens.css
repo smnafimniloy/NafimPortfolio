@@ -1,50 +1,45 @@
 /* Design tokens. Keep in sync with DESIGN.md (the source of truth).
-   Single light theme only, no dark mode. */
+   "Press Kit": monochrome ink on white, no chromatic colour, single light theme. */
 :root {
-  /* Colours */
-  --ink: #1F1B16;            /* primary */
-  --paper: #F4EFE6;          /* neutral, page background */
-  --surface: #FBF8F2;        /* cards */
-  --surface-sunk: #EAE2D3;   /* chips, code */
-  --moss: #5E6B3A;           /* secondary */
-  --clay: #A84A28;           /* tertiary accent */
-  --clay-soft: #F8ECE4;
-  --muted: #5C5347;
-  --line: #D6CCBA;
+  /* Colours: five neutrals only */
+  --ink: #121212;            /* Press Ink: all text, hairlines, icons, fills */
+  --white: #FFFFFF;          /* Paper White: canvas, cards, nav pill */
+  --newsprint: #F1F1F1;      /* soft fills, tags, the paper-texture zone */
+  --foil: #E1E1E1;           /* light borders and dividers */
+  --mute: #C5C5C5;           /* disabled / decorative lines only (never body text) */
 
   /* Type */
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-body: 'Lato', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
   --font-mono: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-hand: 'Rock Salt', 'Comic Sans MS', cursive;   /* one annotation per page */
 
   /* Shape */
-  --r-sm: 4px;
-  --r-md: 10px;
-  --r-lg: 18px;
-  --r-full: 9999px;
+  --r-tag: 20px;
+  --r-card: 20px;
+  --r-nav-item: 28px;
+  --r-nav: 40px;
+  --r-image: 288px;
 
   /* Spacing */
-  --s-xs: 4px;
-  --s-sm: 8px;
-  --s-md: 16px;
-  --s-lg: 24px;
-  --s-xl: 40px;
-  --s-2xl: 64px;
-  --s-section: 120px;
-  --container: 1120px;
+  --s-10: 10px;
+  --s-17: 17px;
+  --s-20: 20px;
+  --s-30: 30px;
+  --s-40: 40px;
+  --s-50: 50px;
+  --s-72: 72px;
+  --s-144: 144px;
+  --section-gap: 72px;
+  --container: 1200px;
   --gutter: 16px;
 
-  /* Depth & motion */
-  --shadow-lift: 0 14px 30px -18px rgba(31, 27, 22, 0.35);
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Crumpled paper (SVG lighting over noise, no image file). Page-level only, never on cards. */
+  --crumple: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2560' height='2560'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0035 0.005' numOctaves='5' seed='7' stitchTiles='stitch'/%3E%3CfeDiffuseLighting lighting-color='%23fff' surfaceScale='3.2'%3E%3CfeDistantLight azimuth='225' elevation='52'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
 
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;
 }
 
 @media (min-width: 720px) {
-  :root { --gutter: 24px; }
-}
-
-@media (max-width: 719px) {
-  :root { --s-section: 72px; }
+  :root { --gutter: 40px; }
 }

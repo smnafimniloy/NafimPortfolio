@@ -25,7 +25,8 @@ __pycache__/
 # ─── Original, full-size images ───────────────
 # Keep big originals on your computer only. Commit the small .webp that
 # `python tools/optimize_images.py` produces, and point content/ at that.
-public/headshot.png
+public/avatar.png
+public/headshot.JPG
 public/blog/rangamatiSunset.webp
 *.psd
 *.ai

@@ -4,15 +4,21 @@
 
 export const profile = {
   name: "S M Nafim Niloy",
-  subtitle: "Researcher · AI Engineer",
+  shortName: "Nafim",   // shown in the header; clicking it goes back to the top
+  subtitle: "Researcher · Software Engineer",
   bio: "Computer Science and Engineering undergraduate with research experience in graph neural networks, computer vision, medical imaging, and natural language processing, seeking opportunities to apply machine learning and software engineering skills in a professional setting. Experienced in end-to-end ML pipelines, full-stack development, and reproducible experimentation.",
 
   // Small line above your name. Leave "" to hide it.
   availability: "Open to research & job opportunities",
 
-  // Photo: put the file in public/ and write "/headshot.webp". Leave "" to hide it.
+  // Photo in the hero card (also used for Google and link previews).
+  // Put the file in public/ and write e.g. "/headshot.webp". Leave "" to hide it.
   // Tip: run `python tools/optimize_images.py` first to shrink big photos.
   headshot: "/headshot.webp",
+
+  // Small round picture in the middle of the rotating badge (top corner of the hero card).
+  // Stays the cartoon avatar even after you change `headshot`. Leave "" to show your initial.
+  badgeAvatar: "/avatar.webp",
 
   location: "Dhaka, Bangladesh",
   email: "admin@nafim.dev",
@@ -21,8 +27,6 @@ export const profile = {
   linkedin: "https://linkedin.com/in/nafimniloy",
   resume: "https://drive.google.com/file/d/1ei7MAoKtN7nivHENXBqIWHhKoPbZOqXD/view?usp=sharing",
 
-  // Paste any YouTube link (watch, youtu.be or shorts). Turn the section on in site.js.
-  videoResume: "https://youtu.be/eGxdpx3H4SU",
 
   // Numbers in the hero card.
   // papers: null = count automatically (journal Accepted/Published + conference Presented/Published).

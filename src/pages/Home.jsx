@@ -6,7 +6,6 @@ import { useReveal } from '../hooks/useReveal'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import Hero from '../components/sections/Hero'
 import Marquee from '../components/ui/Marquee'
-import VideoResume from '../components/sections/VideoResume'
 import Experience from '../components/sections/Experience'
 import Education from '../components/sections/Education'
 import Research from '../components/sections/Research'
@@ -18,7 +17,6 @@ import Contact from '../components/sections/Contact'
 
 // Maps the ids in content/site.js to components.
 const SECTIONS = {
-  'video-resume': VideoResume,
   experience: Experience,
   education: Education,
   research: Research,
@@ -45,10 +43,13 @@ export default function Home() {
     <main>
       <Hero />
       <Marquee items={profile.interests} />
-      {visible.map((s, i) => {
-        const Component = SECTIONS[s.id]
-        return <Component key={s.id} id={s.id} number={i + 1} label={s.label} />
-      })}
+      {/* Everything below the hero sits on crumpled newsprint */}
+      <div className="paper">
+        {visible.map((s, i) => {
+          const Component = SECTIONS[s.id]
+          return <Component key={s.id} id={s.id} number={i + 1} label={s.label} />
+        })}
+      </div>
     </main>
   )
 }

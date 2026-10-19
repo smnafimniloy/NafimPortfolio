@@ -1,3 +1,5 @@
+import { Sparkle } from './Sparkles'
+
 // Endless scrolling strip. The list is rendered twice and the track moves -50%,
 // so the loop has no visible jump.
 export default function Marquee({ items }) {
@@ -7,7 +9,7 @@ export default function Marquee({ items }) {
       {items.map(item => (
         <li key={item}>
           {item}
-          <span className="marquee__sep">✦</span>
+          <span className="marquee__sep"><Sparkle size={14} /></span>
         </li>
       ))}
     </ul>

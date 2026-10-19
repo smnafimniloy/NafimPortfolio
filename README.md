@@ -64,10 +64,10 @@ and write in normal Markdown. The URL becomes `/blog/my-post`. Keep `draft: true
 writing. Drafts show up in `npm run dev` but never on the live site.
 
 **Hide or move a section.** In `content/site.js`, set `show: false` or drag the line up or down.
-Numbering (01, 02…) updates itself. The Video resume and Volunteering sections are there but hidden.
+Numbering (01, 02…) updates itself. The Volunteering section is there but hidden.
 
 **Add your photo.** Put it in `public/`, shrink it (see *Images* below), then set
-`headshot: "/headshot.webp"` in `content/profile.js`.
+`headshot: "/headshot.webp"` in `content/profile.js`. The rotating badge keeps the cartoon (`badgeAvatar: "/avatar.webp"`).
 
 **Change a project icon.** Use one of the names listed at the top of `content/projects.js`
 (e.g. `"Robot"`, `"Brain"`, `"Flask"`). Icons are [Phosphor](https://phosphoricons.com) in the Light weight.
@@ -83,7 +83,7 @@ python tools/optimize_images.py public/my-photo.jpg   # writes public/my-photo.w
 ```
 
 GitHub Actions warns you (without failing) when an image in `public/` is over 500 KB.
-Full-size originals (like `public/headshot.png`) are listed in `.gitignore`, so they stay on your
+Full-size originals (like `public/avatar.png`) are listed in `.gitignore`, so they stay on your
 computer and only the small `.webp` is uploaded. Add new originals there the same way.
 
 ---
@@ -148,12 +148,14 @@ The look is described in [`DESIGN.md`](DESIGN.md) using Google's
 [DESIGN.md format](https://github.com/google-labs-code/design.md). AI coding agents read it, and
 `npm run lint:design` checks it, including colour contrast.
 
-- **Palette:** warm paper `#F4EFE6`, ink `#1F1B16`, terracotta `#A84A28`, moss `#5E6B3A`. Light theme only.
-- **Type:** Playfair Display (headlines), Lato (text), Space Mono (labels), the trio used by
-  [Bound](https://www.typewolf.com/site-of-the-day/bound). All self-hosted.
+- **Style:** "Press Kit", a monochrome typographic system adapted from a
+  [refero.design style reference](https://styles.refero.design/style/eafe33bf-6f53-4619-b279-686ad5869799):
+  ink `#121212` on white, newsprint `#F1F1F1` with a crumpled-paper texture below the hero, no other colours.
+- **Type:** Inter (all text and the huge all-caps headlines), Space Mono (bracketed `[CAPTIONS]`) and
+  Rock Salt (one handwritten annotation). All free and self-hosted.
 - **Icons:** Phosphor Light.
-- **Motion:** looping interests marquee, rotating badge, drifting blob, breathing status dot,
-  floating headshot and a dot that travels down the education timeline.
+- **Motion:** looping interests marquee, rotating badge, breathing status dot,
+  a slowly "breathing" headshot and a dot that travels down the education timeline.
   All of them stop for visitors who turn on "reduce motion".
 
 More docs: [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md) (what the site must do) and
@@ -198,5 +200,5 @@ The **personal content** is **not** covered by the MIT License and remains © S 
 the text and data in `content/` (profile, experience, research, publications, projects, blog posts),
 and the images in `public/` (headshot, share image, favicon, blog photos). Please replace them with your own.
 
-Third-party parts keep their own licenses: fonts (Playfair Display, Lato, Space Mono) under the
-SIL Open Font License, Phosphor Icons under MIT.
+Third-party parts keep their own licenses: fonts (Inter and Space Mono under the
+SIL Open Font License, Rock Salt under Apache 2.0), Phosphor Icons under MIT.

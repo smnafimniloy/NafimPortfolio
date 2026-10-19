@@ -1,6 +1,7 @@
-// Circular text that rotates forever around a monogram (see .badge in animations.css).
-export default function RotatingBadge({ text, monogram = 'N' }) {
-  const label = `${text} ✦ ${text} ✦ `
+// Circular text that rotates forever around a small avatar (or an initial when there's no image).
+// Only the text ring rotates (see .badge in animations.css); the picture stays still.
+export default function RotatingBadge({ text, image, monogram = 'N' }) {
+  const label = `${text} ✦ `
   return (
     <div className="badge" aria-hidden="true">
       <svg className="badge__ring" viewBox="0 0 200 200">
@@ -11,7 +12,11 @@ export default function RotatingBadge({ text, monogram = 'N' }) {
           <textPath href="#badge-circle" textLength="489" lengthAdjust="spacing">{label}</textPath>
         </text>
       </svg>
-      <span className="badge__core">{monogram}</span>
+      {image ? (
+        <span className="badge__core badge__core--image"><img src={image} alt="" width="72" height="72" /></span>
+      ) : (
+        <span className="badge__core">{monogram}</span>
+      )}
     </div>
   )
 }

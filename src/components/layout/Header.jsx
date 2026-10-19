@@ -6,30 +6,29 @@ import { List, X, ArrowUpRight } from '../ui/icons'
 
 const navSections = site.sections.filter(s => s.show && s.nav)
 
-// Logo text comes from the site address: "https://nafim.dev" → "nafim" + ".dev"
-const host = site.url.replace(/^https?:\/\//, '').replace(/\/.*$/, '')
-const dot = host.lastIndexOf('.')
-const [logoName, logoTld] = dot > 0 ? [host.slice(0, dot), host.slice(dot)] : [host, '']
-
 export default function Header() {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
   const isHome = pathname === '/'
   const isBlog = pathname.startsWith('/blog')
 
+  // Your name always brings you back to the top of the home page.
   function handleLogoClick(e) {
     setOpen(false)
     if (isHome) {
       e.preventDefault()
+      window.history.replaceState(null, '', '/')   // drop any #section from the address
       window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      window.scrollTo(0, 0)
     }
   }
 
   return (
     <header className={`header${open ? ' header--open' : ''}`}>
       <div className="container header__inner">
-        <Link to="/" className="logo" onClick={handleLogoClick}>
-          {logoName}<span>{logoTld}</span>
+        <Link to="/" className="logo logo--name" onClick={handleLogoClick} aria-label={`${profile.name}, back to top`}>
+          {profile.shortName || profile.name}
         </Link>
 
         <nav className="nav" aria-label="Main">

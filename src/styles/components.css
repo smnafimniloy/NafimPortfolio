@@ -1,23 +1,23 @@
-/* ── Buttons ──────────────────────────────── */
+/* ── Buttons: ink on white, no shadows, no lift ── */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--s-sm);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.02em;
+  gap: var(--s-10);
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
   padding: 12px 22px;
-  border-radius: var(--r-full);
+  border-radius: var(--r-nav-item);
   border: 1px solid var(--ink);
-  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s var(--ease);
+  transition: background 0.2s, color 0.2s;
   white-space: nowrap;
 }
-.btn:hover { transform: translateY(-2px); }
-.btn--primary { background: var(--ink); color: var(--paper); }
-.btn--primary:hover { background: var(--clay); border-color: var(--clay); color: var(--surface); }
-.btn--outline { background: transparent; color: var(--ink); }
-.btn--outline:hover { background: var(--ink); color: var(--paper); }
-.btn--sm { padding: 8px 16px; font-size: 0.75rem; }
+.btn--primary { background: var(--ink); color: var(--white); }
+.btn--primary:hover { background: var(--white); color: var(--ink); }
+.btn--outline { background: var(--white); color: var(--ink); }
+.btn--outline:hover { background: var(--ink); color: var(--white); }
+.btn--sm { padding: 9px 16px; font-size: 13px; }
 
 /* ── Text links ───────────────────────────── */
 .link {
@@ -25,28 +25,27 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s;
+  font-size: 13px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 1px;
 }
-.link:hover, .link--accent { color: var(--clay); border-color: var(--clay); }
+.link:hover { border-bottom-width: 2px; padding-bottom: 0; }
+.link--accent { font-weight: 700; }
 
-/* ── Cards ────────────────────────────────── */
+/* ── Cards: white sheet, ink hairline, static (no hover effects) ── */
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--s-md);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  padding: var(--s-lg);
-  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s;
+  gap: var(--s-17);
+  background: var(--white);
+  border: 1px solid var(--ink);
+  border-radius: var(--r-card);
+  padding: var(--s-40);
 }
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lift);
-  border-color: #C9BDA7;
+@media (max-width: 719px) {
+  .card { padding: var(--s-20); }
 }
 
 .card__meta {
@@ -54,115 +53,110 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--s-xs) var(--s-md);
+  gap: 4px var(--s-20);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--muted);
+  font-size: 13px;
+  text-transform: uppercase;
 }
 .card__meta span { display: inline-flex; align-items: center; gap: 6px; }
 
-.card__title { font-size: 1.375rem; line-height: 1.3; }
-.card__text { color: var(--muted); }
+.card__title { font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; }
+.card__text { font-size: 17px; }
 
 /* ── Tags & status ────────────────────────── */
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
 .tag {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  background: var(--surface-sunk);
-  color: var(--ink);
-  border-radius: var(--r-full);
-  padding: 4px 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  background: var(--newsprint);
+  border: 1px solid var(--foil);
+  border-radius: var(--r-tag);
+  padding: 3px 12px;
   width: fit-content;
 }
-.tag--accent { background: var(--clay-soft); color: var(--clay); }
+.tag--accent { background: var(--white); border-color: var(--ink); }
 
+/* Finished work is solid ink; work in progress is an ink outline */
 .status {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-size: 12px;
   text-transform: uppercase;
-  background: var(--moss);
-  color: var(--surface);
-  border-radius: var(--r-full);
-  padding: 3px 10px;
+  background: var(--ink);
+  color: var(--white);
+  border: 1px solid var(--ink);
+  border-radius: var(--r-tag);
+  padding: 2px 10px;
 }
 .status--under-review, .status--submitted, .status--in-preparation {
   background: transparent;
-  color: var(--moss);
-  box-shadow: inset 0 0 0 1px var(--moss);
+  color: var(--ink);
 }
 
-.bullets { display: grid; gap: var(--s-sm); color: var(--muted); }
-.bullets li { padding-left: 20px; position: relative; }
-.bullets li::before { content: '✦'; position: absolute; left: 0; color: var(--clay); font-size: 0.7rem; top: 5px; }
+.bullets { display: grid; gap: var(--s-10); }
+.bullets li { padding-left: 22px; position: relative; }
+.bullets li::before { content: '✦'; position: absolute; left: 0; top: 1px; font-size: 0.8rem; }
 
-/* ── Marquee strip ────────────────────────── */
+/* ── Marquee strip (ink band) ─────────────── */
 .marquee {
   background: var(--ink);
-  color: var(--paper);
+  color: var(--white);
   overflow: hidden;
-  padding: 18px 0;
-  margin-top: var(--s-2xl);
-  transform: rotate(-1.2deg);
-  width: 104%;
-  margin-left: -2%;
+  padding: 16px 0;
+  border-top: 1px solid var(--ink);
 }
 .marquee__track { display: flex; width: max-content; }
 .marquee__row { display: flex; flex-shrink: 0; }
 .marquee__row li {
   font-family: var(--font-mono);
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 15px;
   text-transform: uppercase;
   white-space: nowrap;
   display: flex;
   align-items: center;
 }
-.marquee__sep { color: var(--clay); margin: 0 28px; font-size: 1rem; }
+.marquee__sep { margin: 0 32px; }
 
 /* ── Rotating badge ───────────────────────── */
 .badge {
-  position: absolute;
-  top: -54px;
-  right: -28px;
   width: 132px;
   height: 132px;
+  position: relative;
   display: grid;
   place-items: center;
-  background: var(--paper);
-  border: 1px solid var(--line);
+  background: var(--white);
+  border: 1px solid var(--ink);
   border-radius: 50%;
 }
 .badge__ring { position: absolute; inset: 0; width: 100%; height: 100%; }
 .badge__ring text {
   font-family: var(--font-mono);
   font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   fill: var(--ink);
 }
 .badge__core {
   width: 52px; height: 52px;
   border-radius: 50%;
-  background: var(--clay);
-  color: var(--surface);
+  background: var(--ink);
+  color: var(--white);
   display: grid;
   place-items: center;
-  font-family: var(--font-display);
-  font-style: italic;
   font-weight: 700;
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   line-height: 1;
-  padding-right: 2px;
 }
-
+.badge__core--image {
+  width: 74px; height: 74px;
+  background: var(--newsprint);
+  border: 1px solid var(--ink);
+  overflow: hidden;
+}
+.badge__core--image img { width: 88%; height: 88%; object-fit: contain; }
 @media (max-width: 719px) {
-  .badge { width: 104px; height: 104px; top: -44px; right: -6px; }
-  .badge__core { width: 42px; height: 42px; font-size: 1.4rem; }
+  .badge { width: 100px; height: 100px; }
+  .badge__core--image { width: 56px; height: 56px; }
 }
 
 /* ── Availability dot ─────────────────────── */
@@ -170,7 +164,7 @@
   position: relative;
   width: 9px; height: 9px;
   border-radius: 50%;
-  background: var(--moss);
+  background: var(--ink);
   display: inline-block;
 }
 .pulse-dot::after {
@@ -178,5 +172,28 @@
   position: absolute;
   inset: -5px;
   border-radius: 50%;
-  border: 1.5px solid var(--moss);
+  border: 1px solid var(--ink);
 }
+
+/* ── Handwritten annotation: Rock Salt circled in ink, once per page ── */
+.scribble {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  font-size: 0.42em;
+  line-height: 1.4;
+  padding: 0.5em 0.9em;
+  vertical-align: middle;
+}
+.scribble svg {
+  position: absolute;
+  inset: -6% -4%;
+  width: 108%;
+  height: 112%;
+  overflow: visible;
+  pointer-events: none;
+}
+.scribble path { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; }

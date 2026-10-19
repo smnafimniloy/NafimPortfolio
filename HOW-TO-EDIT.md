@@ -207,6 +207,8 @@ Then use the `.webp` file in your content, e.g. `cover: /blog/my-photo.webp`.
 Add the big original's name to `.gitignore` so it stays on your computer only.
 
 **New headshot:** put it in `public/`, shrink it as above, and set `headshot: "/headshot.webp"` in `content/profile.js`.
+The small picture in the rotating badge is separate (`badgeAvatar: "/avatar.webp"`), so it stays the cartoon avatar.
+Don't delete `public/avatar.webp` unless you change or empty `badgeAvatar`.
 
 **The share picture** (`public/og-image.jpg`, shown when someone shares your link on LinkedIn, WhatsApp, X…) uses your name, subtitle and headshot. Remake it after changing any of those:
 

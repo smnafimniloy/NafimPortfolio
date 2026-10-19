@@ -8,7 +8,7 @@
 
 export const experience = [
   {
-    role: "Student Research Assistant",
+    role: "Student Research Associate",
     organization: "Smile Care",
     link: "",
     location: "Dhaka, Bangladesh",

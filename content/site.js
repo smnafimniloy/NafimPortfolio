@@ -12,7 +12,6 @@ export const site = {
   // Order of sections on the home page. Set `show: false` to hide one.
   // `nav: true` adds it to the top menu.
   sections: [
-    { id: "video-resume", label: "Introduction", show: false, nav: false },
     { id: "experience",   label: "Experience",   show: true,  nav: true },
     { id: "education",    label: "Education",    show: true,  nav: true },
     { id: "research",     label: "Research",     show: true,  nav: true },

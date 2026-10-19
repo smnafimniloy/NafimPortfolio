@@ -106,9 +106,9 @@ Everything personal lives in `content/` and `public/`. Work through this checkli
 **`content/blog/`**: delete the existing posts (keep `_TEMPLATE.md`). With no posts, the blog shows "No posts yet". Set `showBlog: false` in `site.js` to remove it completely.
 
 **`public/`**
-- [ ] Delete `headshot.webp`, `blog/*` and `fabIcon_N.png`
+- [ ] Delete `avatar.webp`, `blog/*` and `fabIcon_N.png`
 - [ ] Add your own favicon and update the two `<link rel="icon">` lines in `index.html`
-- [ ] Add your photo (optional), then set `headshot` in `profile.js`
+- [ ] Add your photo (optional), then set `headshot` and `badgeAvatar` in `profile.js` (or `""` to hide them)
 - [ ] Remake the share image: `python tools/make_og_image.py`
 
 **`.gitignore`**: remove the two lines under *Original, full-size images* (they name files from this site) and add your own originals if needed.

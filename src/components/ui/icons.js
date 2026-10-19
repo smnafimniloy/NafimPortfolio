@@ -7,8 +7,7 @@ import {
 
 export {
   ArrowRight, ArrowUpRight, ArrowLeft, GithubLogo, LinkedinLogo, EnvelopeSimple,
-  MapPin, Star, GitFork, CalendarBlank, FileText, List, X, Play,
-  YoutubeLogo, DownloadSimple,
+  MapPin, Star, GitFork, CalendarBlank, FileText, List, X,
 } from '@phosphor-icons/react'
 
 export const projectIcons = {

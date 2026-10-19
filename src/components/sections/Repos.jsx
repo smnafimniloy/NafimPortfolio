@@ -5,20 +5,6 @@ import { formatMonth } from '../../lib/format'
 import github from '../../generated/github.json'
 
 // Repo data is fetched during the build by scripts/fetch-github.js (no API calls in the browser).
-const LANG_COLORS = {
-  Python: '#3572A5',
-  JavaScript: '#C9B23A',
-  TypeScript: '#3178C6',
-  Java: '#B07219',
-  'C++': '#F34B7D',
-  'C#': '#178600',
-  PHP: '#4F5D95',
-  HTML: '#E34C26',
-  CSS: '#563D7C',
-  R: '#198CE7',
-  Shell: '#6A9F3A',
-  'Jupyter Notebook': '#DA5B0B',
-}
 
 export default function Repos(props) {
   return (
@@ -38,7 +24,7 @@ export default function Repos(props) {
             <p className="repo__meta">
               {repo.language && (
                 <span>
-                  <i className="lang-dot" style={{ background: LANG_COLORS[repo.language] ?? '#8A7F70' }} />
+                  <i className="lang-dot" />
                   {repo.language}
                 </span>
               )}

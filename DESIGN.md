@@ -1,257 +1,257 @@
 ---
 version: alpha
-name: Field Notes
-description: Warm, editorial portfolio for S M Nafim Niloy. Paper, ink and terracotta, typeset like a printed research notebook. Typography taken from Bound (weare-bound.com, Typewolf Site of the Day, Dec 2016).
+name: Press Kit
+description: Monochrome typographic portfolio for S M Nafim Niloy. Black ink on white, oversized grotesque headlines, bracketed monospace captions, sparkle dividers and one sheet of crumpled paper. Adapted from a press-kit style reference (refero.design) using only free fonts.
 colors:
-  primary: "#1F1B16"
-  on-primary: "#F4EFE6"
-  secondary: "#5E6B3A"
-  on-secondary: "#FBF8F2"
-  tertiary: "#A84A28"
-  on-tertiary: "#FBF8F2"
-  tertiary-soft: "#F8ECE4"
-  neutral: "#F4EFE6"
-  surface: "#FBF8F2"
-  surface-sunk: "#EAE2D3"
-  on-surface: "#1F1B16"
-  muted: "#5C5347"
-  outline: "#D6CCBA"
+  primary: "#121212"
+  on-primary: "#FFFFFF"
+  neutral: "#FFFFFF"
+  surface: "#FFFFFF"
+  newsprint: "#F1F1F1"
+  foil: "#E1E1E1"
+  mute: "#C5C5C5"
 typography:
   display:
-    fontFamily: Playfair Display
-    fontSize: 4.5rem
+    fontFamily: Inter
+    fontSize: 13rem
     fontWeight: 700
-    lineHeight: 1.02
+    lineHeight: 1
+    letterSpacing: -0.04em
+  heading:
+    fontFamily: Inter
+    fontSize: 4.7rem
+    fontWeight: 700
+    lineHeight: 1.05
     letterSpacing: -0.02em
-  headline:
-    fontFamily: Playfair Display
-    fontSize: 2.75rem
+  heading-sm:
+    fontFamily: Inter
+    fontSize: 22px
     fontWeight: 700
-    lineHeight: 1.1
+    lineHeight: 1.2
     letterSpacing: -0.01em
-  title:
-    fontFamily: Playfair Display
-    fontSize: 1.375rem
-    fontWeight: 700
-    lineHeight: 1.3
-  body-lg:
-    fontFamily: Lato
-    fontSize: 1.125rem
+  body:
+    fontFamily: Inter
+    fontSize: 17px
     fontWeight: 400
-    lineHeight: 1.7
-  body-md:
-    fontFamily: Lato
-    fontSize: 1rem
+    lineHeight: 1.6
+  nav:
+    fontFamily: Inter
+    fontSize: 15px
+    fontWeight: 500
+    lineHeight: 1.15
+  caption:
+    fontFamily: Space Mono
+    fontSize: 13px
     fontWeight: 400
-    lineHeight: 1.65
+    lineHeight: 1.6
   label:
     fontFamily: Space Mono
-    fontSize: 0.8125rem
+    fontSize: 16px
     fontWeight: 400
     lineHeight: 1.4
-    letterSpacing: 0.04em
-  label-caps:
-    fontFamily: Space Mono
-    fontSize: 0.75rem
-    fontWeight: 700
+  annotation:
+    fontFamily: Rock Salt
+    fontSize: 0.42em
+    fontWeight: 400
     lineHeight: 1.4
-    letterSpacing: 0.12em
+    letterSpacing: -0.02em
 rounded:
-  none: 0px
-  sm: 4px
-  md: 10px
-  lg: 18px
-  full: 9999px
+  tag: 20px
+  card: 20px
+  nav-item: 28px
+  nav: 40px
+  image: 288px
 spacing:
-  xs: 4px
-  sm: 8px
-  md: 16px
-  lg: 24px
+  xs: 10px
+  sm: 17px
+  md: 20px
+  lg: 30px
   xl: 40px
-  2xl: 64px
-  section: 120px
-  gutter: 16px
-  container: 1120px
+  2xl: 50px
+  section: 72px
+  container: 1200px
 components:
   page:
     backgroundColor: "{colors.neutral}"
-    textColor: "{colors.on-surface}"
-    typography: "{typography.body-md}"
+    textColor: "{colors.primary}"
+    typography: "{typography.body}"
+  paper-zone:
+    backgroundColor: "{colors.newsprint}"
+    textColor: "{colors.primary}"
+  nav-pill:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.primary}"
+    typography: "{typography.nav}"
+    rounded: "{rounded.nav}"
+    padding: 5px
+  nav-item-active:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    rounded: "{rounded.nav-item}"
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.label}"
-    rounded: "{rounded.full}"
+    typography: "{typography.nav}"
+    rounded: "{rounded.nav-item}"
     padding: 12px 22px
-  button-primary-hover:
-    backgroundColor: "{colors.tertiary}"
-    textColor: "{colors.on-tertiary}"
   button-outline:
-    backgroundColor: "{colors.neutral}"
+    backgroundColor: "{colors.surface}"
     textColor: "{colors.primary}"
-    typography: "{typography.label}"
-    rounded: "{rounded.full}"
-    padding: 11px 21px
+    typography: "{typography.nav}"
+    rounded: "{rounded.nav-item}"
   card:
     backgroundColor: "{colors.surface}"
-    textColor: "{colors.on-surface}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.lg}"
-  card-meta:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.muted}"
-    typography: "{typography.label}"
-  chip:
-    backgroundColor: "{colors.surface-sunk}"
     textColor: "{colors.primary}"
-    typography: "{typography.label}"
-    rounded: "{rounded.full}"
-    padding: 4px 12px
-  chip-accent:
-    backgroundColor: "{colors.tertiary-soft}"
-    textColor: "{colors.tertiary}"
-    typography: "{typography.label}"
-    rounded: "{rounded.full}"
-  status-badge:
-    backgroundColor: "{colors.secondary}"
-    textColor: "{colors.on-secondary}"
-    typography: "{typography.label-caps}"
-    rounded: "{rounded.full}"
+    rounded: "{rounded.card}"
+    padding: "{spacing.xl}"
+  tag:
+    backgroundColor: "{colors.newsprint}"
+    textColor: "{colors.primary}"
+    typography: "{typography.caption}"
+    rounded: "{rounded.tag}"
+    padding: 3px 12px
+  status-done:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.caption}"
+    rounded: "{rounded.tag}"
   divider:
-    backgroundColor: "{colors.outline}"
+    backgroundColor: "{colors.foil}"
     height: 1px
+  disabled:
+    backgroundColor: "{colors.mute}"
+    textColor: "{colors.primary}"
   marquee:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.label-caps}"
+    typography: "{typography.caption}"
 ---
 
 ## Overview
 
-**Field Notes** treats the portfolio like a researcher's printed notebook: warm
-uncoated paper, dense black ink, and one earthy terracotta used sparingly for
-emphasis. It should feel calm, human and handmade, closer to a small editorial
-publication than a tech landing page.
+**Press Kit** treats the portfolio like a printed press kit laid out on raw
+paper. There is no chromatic colour: black ink, white space, hairline rules
+and one crumpled-paper texture carry the whole atmosphere. Typography is the
+product. Display headlines reach ~13rem in Inter 700 with tight tracking, so
+text is the dominant visual mass on every screen.
 
-The typographic voice comes from Bound (weare-bound.com), whose stylesheet
-pairs **Space Mono**, **Playfair Display** and **Lato**. We keep that trio:
-Playfair carries the editorial headlines, Space Mono handles the "lab notebook"
-metadata (labels, dates, tags, navigation), and Lato keeps long text readable.
+Three voices: **Inter** (the workhorse, standing in for Helvetica Neue) for
+95% of the content including all headlines, **Space Mono** for bracketed
+print captions like `[01 — EXPERIENCE]`, and **Rock Salt** for a single
+handwritten annotation per page. All three are free (SIL OFL / Apache 2.0)
+and self-hosted.
 
-There is one theme only, light paper. No dark mode and no theme toggle.
+Single light theme. No dark mode, no theme toggle.
 
 ## Colors
 
-The palette is drawn from natural materials: paper, ink, clay and moss.
+Five neutrals only. Zero chroma is the brand.
 
-- **Primary / Ink (#1F1B16):** Warm near-black for headings, body text,
-  primary buttons and the looping marquee strip.
-- **Neutral / Paper (#F4EFE6):** The page background. Never use pure white
-  for the page.
-- **Surface (#FBF8F2):** Cards sit slightly lighter than the paper, like a
-  fresh sheet laid on a desk.
-- **Surface sunk (#EAE2D3):** Chips, code blocks and inset areas.
-- **Tertiary / Terracotta (#A84A28):** The single accent. Links on hover,
-  the primary button hover state, italic emphasis in headlines, the rotating
-  badge. If more than one terracotta element competes in a viewport, remove one.
-- **Tertiary soft (#F8ECE4):** Background for accent chips and highlights.
-- **Secondary / Moss (#5E6B3A):** Status badges (Published, Presented,
-  Under Review) and the availability dot.
-- **Muted (#5C5347):** Secondary text: captions, dates, metadata.
-- **Outline (#D6CCBA):** 1px rules and card borders.
+- **Press Ink (#121212):** all text, hairlines, borders, icons, the marquee
+  band and every solid fill (primary buttons, active nav item, finished status).
+- **Paper White (#FFFFFF):** the page canvas above the fold, cards, the nav pill.
+- **Newsprint (#F1F1F1):** tags, and the paper zone below the hero that carries
+  the crumpled texture.
+- **Foil Gray (#E1E1E1):** light borders and dividers (header underline, tag
+  outlines, stat separators).
+- **Mute Gray (#C5C5C5):** disabled states and decorative lines only. Never
+  use it for readable text; secondary text stays ink and is distinguished by
+  size or the mono face instead.
 
 ## Typography
 
-- **Display / Headline / Title:** Playfair Display 700. Use the italic for one
-  emphasised word per headline (rendered in terracotta), e.g. "Let's talk
-  *research*".
-- **Body:** Lato 400 at 1rem–1.125rem with generous 1.65–1.7 line height.
-  Paragraphs max out at ~68ch.
-- **Label / Label caps:** Space Mono. Every piece of metadata (section
-  numbers like `01 / Education`, dates, tags, nav links, buttons, stats) uses
-  Space Mono. Caps labels get 0.12em tracking.
+- **Display:** Inter 700, `clamp(3.4rem, 13.4vw, 13rem)`, line-height 1.0,
+  tracking -0.04em, ALL CAPS. Used for the name in the hero (last name on its
+  own line), the contact headline, the blog title and the 404.
+- **Heading:** Inter 700, `clamp(2.5rem, 6.4vw, 4.7rem)`, line-height 1.05,
+  ALL CAPS, for section titles.
+- **Heading small:** Inter 700, 22px, mixed case, for card titles and paper
+  titles (20px).
+- **Body:** Inter 400, 17px, line-height 1.6, measure ≤ 720px.
+- **Nav / buttons:** Inter 500, 15px, uppercase.
+- **Caption / label:** Space Mono 400, 13–16px, uppercase, usually wrapped
+  in square brackets: `[01 — EXPERIENCE]`, `[CONFERENCE]`, `[UNIVERSITY]`.
+- **Annotation:** Rock Salt, about 0.42em of the surrounding headline,
+  circled with a hand-drawn ink loop. Exactly once per page (the last word of
+  the contact headline).
 
-Display size scales fluidly: `clamp(2.75rem, 7vw, 4.5rem)`.
+Emphasised words in headlines (`<em>`) are plain ink: no colour, no italics.
 
 ## Layout
 
-- Single centred column, max width 1120px, 16px side gutter on phones and
-  24px from tablet up.
-- Sections are separated by 120px of vertical space (72px on phones) and a
-  1px outline rule, with a mono section label above each title.
-- Education is a vertical timeline (stage + period in a 160px mono column on
-  desktop, stacked on phones). Grids: two columns for featured projects; three
-  for the remaining projects and repositories; all collapse to one column under
-  720px.
-- Hero is asymmetric: copy on the left (~60%), a "notebook card" on the right
-  containing location, email and count-up stats.
+- Centered container, max 1200px, 16px side gutter on phones and 40px from
+  tablet up.
+- Sections are 72px apart, introduced by a centered row of five sparkles
+  (72px gaps), then a bracketed mono label and an all-caps heading. 50px
+  between the heading and the content.
+- Hero: bracketed availability caption → oversized two-line name → a grid
+  with the subtitle, bio and buttons on the left and the info card (avatar,
+  location, email, stats, rotating badge) on the right.
+- An ink marquee band separates the hero from the paper zone; everything after
+  it sits on newsprint with the crumpled texture.
+- Footer: one strip with an ink hairline on top; wordmark left, mono tag
+  centre, copyright and social icons right.
 
 ## Elevation & Depth
 
-Depth is physical rather than digital. Cards use a 1px outline border and,
-on hover, lift 3px with a soft warm shadow
-`0 14px 30px -18px rgba(31, 27, 22, 0.35)`. No glassmorphism, no glows, no
-gradients except a faint paper-grain noise overlay on the page background.
+No shadows anywhere. Structure comes from 1px ink hairlines (cards, nav pill,
+publication rules, skill rows) and generous whitespace. Depth comes only from
+the crumpled-paper texture: an SVG noise sheet lit with `feDiffuseLighting`,
+2560px wide so it never shows a seam, applied to the page below the hero.
+Never apply the texture to cards or components.
 
 ### Motion
 
-All motion is slow and organic, and every looping animation stops under
-`prefers-reduced-motion: reduce`.
+Cards never move or lift: the aesthetic is static print. Loops are slow, all
+monochrome, and every one stops under `prefers-reduced-motion: reduce`.
 
-- **Marquee strip** (loop, 40s linear): an ink band below the hero scrolls
-  research interests endlessly. The content is duplicated and translated
-  `-50%` so the loop is seamless. It pauses on hover.
-- **Rotating badge** (loop, 22s linear): circular Space Mono text "open to
-  research & job opportunities ✦" rotating around an italic Playfair "N"
-  monogram on a terracotta disc in the hero card.
-- **Organic blob** (loop, 18s ease-in-out alternate): a soft terracotta/moss
-  blob behind the hero morphs its border radius and drifts.
-- **Availability dot** (loop, 2.4s): moss dot with a breathing ring. Also
-  marks the thesis status line.
-- **Headshot float** (loop, 6s ease-in-out): the avatar bobs 5px and tilts 2deg.
-- **Timeline traveller** (loop, 6s ease-in-out): a terracotta dot travels
-  down the education timeline and fades out at the bottom.
-- **Reveal on scroll** (once): sections fade up 18px over 700ms.
-- **Count-up** (once): hero stats count from 0.
+- **Marquee** (loop, 40s linear): research interests on the ink band,
+  separated by sparkles; pauses on hover.
+- **Rotating badge** (loop, 22s): mono caption text circling a still avatar
+  (`profile.badgeAvatar`) in the corner of the hero card; falls back to an
+  ink "N" disc when there is no avatar.
+- **Headshot breathe** (loop, 8s): the round photo zooms gently to 105% and back.
+- **Timeline traveller** (loop, 6s): an ink dot travels down the education line.
+- **Availability dot** (loop, 2.4s): ink dot with a breathing ring.
+- **Reveal** (once): sections fade up 18px; the hero lines rise in a stagger.
 
 ## Shapes
 
-Soft but not bubbly: 18px radius for cards, 10px for images and inputs,
-fully rounded pills for buttons and chips. Decorative shapes (blob, badge) are
-the only round-organic forms.
+- Cards and tags: 20px radius. Nav pill 40px, nav items and buttons 28px.
+- Large images: up to 288px radius for truly full-bleed photos; the 760px
+  blog post cover uses 140px so it stays a softened rectangle, not an oval.
+  Blog-list thumbnails 14px.
+- Circles only for the avatar, badge, icon discs and social buttons.
 
 ## Components
 
-- **Buttons:** pill-shaped, Space Mono label. Primary is ink with paper text
-  and turns terracotta on hover. Outline uses a 1px ink border on paper.
-- **Cards:** surface background, 1px outline border, 18px radius, 24px padding.
-  The card head row is Space Mono metadata in muted ink.
-- **Chips / tags:** sunk-paper pill in Space Mono. Accent chips use
-  terracotta on tertiary-soft.
-- **Status badge:** caps Space Mono pill. Solid moss for finished states
-  (Published, Accepted, Presented); moss outline for work in progress
-  (Under Review, Submitted, In Preparation).
-- **Publication lists:** two ruled lists, "Papers" (journal Accepted/Published,
-  conference Presented/Published) and "In progress" (everything else), each
-  with a mono count beside the heading.
-- **Experience card:** full-width card; role as title, organisation in Space
-  Mono (linked when a URL exists) with a moss pulsing "Current" marker.
-- **Timeline:** dashed outline line, 13px ring markers (the newest filled ink),
-  caps terracotta stage label, card per stop.
-- **Headshot:** illustrated avatar shown whole (`object-fit: contain`) on a
-  136px sunk-paper disc, never cropped to a circle.
-- **Marquee:** full-bleed ink band, caps Space Mono, terracotta `✦` separators.
-- **Icons:** Phosphor Icons, **Light** weight, 18–20px, coloured
-  `currentColor`. The thin line style matches Bound's light line icons. Do not
-  mix in filled or duotone icons.
+- **Header name:** just the short name ("NAFIM"), Inter 24px/700 caps; clicking
+  it returns to the top of the home page.
+- **Wordmark (footer):** text only. Full name, then each part of the
+  subtitle, stacked on three lines, Inter 15px/500.
+- **Nav pill:** white, 1px ink border, 40px radius, uppercase items; the
+  active item is filled ink. On phones it becomes a full-width dropdown.
+- **Buttons:** 28px radius, uppercase Inter 15px/500. Primary is ink with
+  white text; outline is white with an ink border. Hover simply inverts.
+- **Cards:** white, 1px ink border, 20px radius, 40px padding (20px on
+  phones), mono uppercase meta row.
+- **Tags:** newsprint pill-ish chip (20px radius), Space Mono 13px.
+- **Status badge:** mono caps. Finished work (Published / Accepted /
+  Presented) is solid ink; work in progress is an ink outline.
+- **Sparkle divider:** five four-pointed sparkles, 20px, 72px apart.
+- **Annotation:** Rock Salt word inside a hand-drawn ink ellipse (SVG path).
+- **Icons:** Phosphor Light, `currentColor` ink.
 
 ## Do's and Don'ts
 
-- **Do** keep terracotta rare. It is a highlight, not a fill colour.
-- **Do** use Space Mono for anything that is data or metadata.
-- **Do** give every loop a reduced-motion fallback.
-- **Do** keep the background warm paper. Never use `#FFFFFF` for the page.
-- **Don't** add a dark mode, theme toggle or neon gradient text.
-- **Don't** use emoji as icons in UI chrome. Use Phosphor Light instead.
-- **Don't** set long paragraphs in Space Mono. Body copy is Lato.
-- **Don't** add drop shadows to text or heavy shadows to cards.
+- **Do** let type size carry the page: display and section headings in caps.
+- **Do** wrap meta labels in square brackets in Space Mono.
+- **Do** keep every colour within the five neutrals.
+- **Do** keep body text at 17px with a measure of at most ~720px.
+- **Don't** add box-shadows, gradients, glows or hover-lift effects.
+- **Don't** introduce any chromatic accent, including language colour dots.
+- **Don't** use mixed case in display headlines; only the Rock Salt
+  annotation is mixed case, and only once per page.
+- **Don't** put the paper texture on cards, or tile it with visible seams.
+- **Don't** use serif typefaces anywhere.
+- **Don't** add a dark mode.

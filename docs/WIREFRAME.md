@@ -9,7 +9,7 @@ Low-fidelity layouts for nafim.dev. Visual styling is defined in [`DESIGN.md`](.
 ┌──────────────────────────────────────────────────────────────────────────┐
 │ nafim.dev  Experience Education Research Projects Skills Contact Blog [Resume↗]│  sticky header
 ├──────────────────────────────────────────────────────────────────────────┤
-│                                                      ~~~ blob ~~~        │
+│                                                                          │
 │  ● Open to research & job opportunities  (pulse ~~~)                     │
 │                                                       ╭─────╮ rotating   │
 │  S M Nafim *Niloy*                         ┌──────────┤ (N) │ badge ~~~  │
@@ -164,17 +164,17 @@ Low-fidelity layouts for nafim.dev. Visual styling is defined in [`DESIGN.md`](.
 │        ┌──────────────────────────────────┐  │
 │        │            cover 16:9            │  │
 │        └──────────────────────────────────┘  │
-│        Body text (Lato 18px / 1.8) ...       │
-│        ## Heading (Playfair)                 │
+│        Body text (Inter 17px / 1.6) ...      │
+│        ## HEADING (Inter caps)               │
 │        ┃ *pull quote in italic serif*        │
-│        • list with terracotta markers        │
+│        • list with ink markers               │
 └──────────────────────────────────────────────┘
 ```
 
 ## 404
 
 ```
-              *404*            (huge italic terracotta)
+              404              (huge ink display)
        This page wandered *off*
    The URL you typed doesn't exist on this site.
         [Go home]  [Read the blog]
