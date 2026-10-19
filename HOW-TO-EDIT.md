@@ -210,6 +210,12 @@ Add the big original's name to `.gitignore` so it stays on your computer only.
 The small picture in the rotating badge is separate (`badgeAvatar: "/avatar.webp"`), so it stays the cartoon avatar.
 Don't delete `public/avatar.webp` unless you change or empty `badgeAvatar`.
 
+**Browser-tab icon (favicon):** made from your avatar. If you change the avatar, remake the icons:
+
+```bash
+python tools/make_favicons.py
+```
+
 **The share picture** (`public/og-image.jpg`, shown when someone shares your link on LinkedIn, WhatsApp, X…) uses your name, subtitle and headshot. Remake it after changing any of those:
 
 ```bash

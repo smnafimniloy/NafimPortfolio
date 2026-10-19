@@ -182,7 +182,7 @@ src/
   entry-server.jsx    build-time renderer (prerendering)
 scripts/              fetch-github.js (before build) · postbuild.js (prerender + SEO) · indexnow.js
   lib/                data · seo (meta + JSON-LD) · feeds (sitemap, RSS) · ai-files (llms.txt)
-tools/                optimize_images.py · make_og_image.py
+tools/                optimize_images.py · make_og_image.py · make_favicons.py
 docs/                 REQUIREMENTS.md · WIREFRAME.md
 DESIGN.md             design system
 GETTING-STARTED.md    setup from a fresh clone / reuse as your own
