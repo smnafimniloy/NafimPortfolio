@@ -4,7 +4,7 @@ date: 2026-03-02
 cover:
 tags: Research, Academia, Machine Learning
 excerpt: From a half-formed idea in a lab meeting to a conference submission — what the process of writing and submitting my first paper actually looked like, and what I wish someone had told me at the start.
-draft: true
+# draft: true
 ---
 
 Somewhere in the middle of my third year, my supervisor suggested I write up our radiomics work as a paper. I said yes without fully understanding what that meant. Here's what I learned.

@@ -4,7 +4,7 @@ date: 2026-04-18
 cover:
 tags: NLP, Machine Learning, Research, Python
 excerpt: Why I trained a 100M parameter transformer specifically for Bangla, what broke along the way, and what I learned about tokenisation, data quality, and the gap between "it runs" and "it works".
-draft: true
+# draft: true
 ---
 
 Most large language models treat Bangla as an afterthought. It shows — outputs are stilted, romanised words slip in mid-sentence, and the models clearly haven't seen enough natural Bangla to develop any real fluency. That frustration is what started BanglaLLM.
