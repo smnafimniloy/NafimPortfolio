@@ -76,4 +76,12 @@
   overflow-x: auto;
 }
 .prose pre code { background: none; padding: 0; }
-.prose img { border-radius: var(--r-md); }
+.prose img { border-radius: var(--r-md); width: 100%; height: auto; }
+.prose figure { margin: 2em 0; }
+.prose figcaption {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  text-align: center;
+}

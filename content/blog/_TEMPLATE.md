@@ -22,3 +22,5 @@ Normal paragraph with **bold**, *italic*, `code` and a [link](https://nafim.dev)
 - Another one
 
 ![Image description](/blog/another-photo.webp)
+
+![Image description](/blog/another-photo.webp "A caption shown under the photo")
