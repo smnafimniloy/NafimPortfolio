@@ -90,6 +90,10 @@ Everything runs in `.github/workflows/deploy.yml`. Nothing is built or uploaded 
   Blog, BlogPosting, BreadcrumbList) generated from `content/`; sitemap with images; RSS feed;
   404 marked `noindex`; Search Console verification codes configurable in `content/site.js`;
   IndexNow ping after each push.
+- **N4a Redirects:** http→https and www→apex (GitHub Pages, 301); missing trailing slash → slash (301);
+  `/index.html` tidied client-side; wrong-case paths lowercased on the 404 page; `site.redirects` generates
+  instant meta-refresh + canonical redirect pages (noindex, not in the sitemap) for renamed pages and short
+  links (`/resume`, `/cv`, `/github`, `/linkedin`); a redirect may never overwrite a real page.
 - **N4b AI-friendliness:** `llms.txt` and `llms-full.txt` generated from content; `robots.txt` explicitly
   allows AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended…); all text readable without JS.
 - **N5 Maintainability:** ESLint passes; one CSS file per concern under `src/styles/`; tokens in `tokens.css` match `DESIGN.md`.

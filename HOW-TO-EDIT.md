@@ -158,6 +158,29 @@ In `content/site.js`:
 - `nav: true` adds it to the top menu
 - Moving a line up or down changes the order. The section numbers (01, 02…) update themselves.
 
+### Rename a blog post (or add a short link) without breaking old links
+
+Search engines and people may already have the old address. Add a redirect in `content/site.js`:
+
+```js
+redirects: {
+  "/resume/": "resume",                                  // nafim.dev/resume → your resume
+  "/blog/old-post-name/": "/blog/new-post-name/",        // renamed post
+  "/talk/": "https://youtube.com/watch?v=…",             // any outside link
+},
+```
+
+Every redirect gets its own tiny page that forwards visitors and search engines instantly.
+`resume`, `github` and `linkedin` are shortcuts to the links in `content/profile.js`. Short links
+`nafim.dev/resume`, `/cv`, `/github` and `/linkedin` already work.
+
+The site also handles these for you:
+- `http://` and `www.nafim.dev` go to `https://nafim.dev` (GitHub Pages)
+- a missing trailing slash (`/blog` → `/blog/`) is added (GitHub Pages)
+- `…/index.html` is tidied to `…/`
+- wrong capitals (`/BLOG/`) are fixed
+- anything else shows the 404 page (with a real 404 status, so Google drops dead links)
+
 ### Write a blog post
 
 1. Copy `content/blog/_TEMPLATE.md`.

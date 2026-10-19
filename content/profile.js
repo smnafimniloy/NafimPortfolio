@@ -4,7 +4,7 @@
 
 export const profile = {
   name: "S M Nafim Niloy",
-  subtitle: "CSE undergrad · Researcher · AI Engineer",
+  subtitle: "Researcher · AI Engineer",
   bio: "Computer Science and Engineering undergraduate with research experience in graph neural networks, computer vision, medical imaging, and natural language processing, seeking opportunities to apply machine learning and software engineering skills in a professional setting. Experienced in end-to-end ML pipelines, full-stack development, and reproducible experimentation.",
 
   // Small line above your name. Leave "" to hide it.

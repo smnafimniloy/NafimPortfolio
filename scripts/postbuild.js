@@ -13,6 +13,8 @@ import { site, profile, posts, routes } from './lib/data.js'
 import { headTags, homeJsonLd, blogJsonLd, postJsonLd } from './lib/seo.js'
 import { sitemapXml, rssXml } from './lib/feeds.js'
 import { llmsTxt, llmsFullTxt, robotsTxt } from './lib/ai-files.js'
+import { redirectList, redirectPage } from './lib/redirects.js'
+import { existsSync } from 'node:fs'
 
 const { render } = await import(pathToFileURL(resolve('dist-ssr/entry-server.js')).href)
 const template = readFileSync('dist/index.html', 'utf8')
@@ -73,6 +75,13 @@ write('/404.html', page('/404/', headTags({
   path: '/404/',
   noindex: true,
 })))
+
+// Redirects (old or short addresses → new ones). Never overwrite a real page.
+for (const { from, to } of redirectList()) {
+  const file = from.endsWith('/') ? `${from}index.html` : from
+  if (existsSync(`dist${file}`)) throw new Error(`Redirect "${from}" would replace a real page. Remove it from site.redirects in content/site.js.`)
+  write(file, redirectPage(to))
+}
 
 write('/sitemap.xml', sitemapXml())
 write('/llms.txt', llmsTxt())

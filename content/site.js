@@ -26,6 +26,19 @@ export const site = {
   // Show the Blog link in the menu.
   showBlog: true,
 
+  // ─── Redirects ──────────────────────────────────────────────
+  // "old or short address": "where it should go"
+  // Use these when you rename a blog post (so old links keep working) or for short links.
+  // Targets can be a page on this site ("/blog/new-name/") or a full link ("https://…").
+  // "resume", "github" and "linkedin" use the links in content/profile.js.
+  redirects: {
+    "/resume/": "resume",
+    "/cv/": "resume",
+    "/github/": "github",
+    "/linkedin/": "linkedin",
+    // "/blog/old-post-name/": "/blog/new-post-name/",
+  },
+
   // ─── Search engines & AI ────────────────────────────────────
   seo: {
     // Words people might search for. Used in the page metadata and for AI assistants.

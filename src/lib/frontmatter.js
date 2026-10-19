@@ -26,7 +26,7 @@ export function parseFrontmatter(raw) {
 // "2024-07-18-weekend-at-kaptai-lake.md" -> "weekend-at-kaptai-lake"
 export function slugFromFilename(path) {
   const file = path.split('/').pop().replace(/\.md$/, '')
-  return file.replace(/^\d{4}-\d{2}-\d{2}-/, '')
+  return file.replace(/^\d{4}-\d{2}-\d{2}-/, '').toLowerCase()
 }
 
 export function toPost(path, raw) {
