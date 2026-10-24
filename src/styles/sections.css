@@ -11,8 +11,11 @@
   margin-bottom: var(--s-30);
 }
 
+/* Change the name size here only: the info card below lines itself up with it. */
+.hero { --name-size: clamp(2.6rem, 10vw, 9.75rem); }
+
 .hero__name {
-  font-size: clamp(2.6rem, 10vw, 9.75rem);
+  font-size: var(--name-size);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -55,7 +58,7 @@
 /* Desktop: lift the info card up beside the last line of the name ("NILOY") */
 @media (min-width: 960px) {
   .hero__inner { margin-top: var(--s-30); }
-  .hero__card { margin-top: calc(-1 * min(13.4vw, 13rem) - var(--s-30)); }
+  .hero__card { margin-top: calc(-1 * var(--name-size) - var(--s-30)); }
 }
 .hero__card .badge { position: absolute; top: -60px; right: -24px; }
 @media (max-width: 719px) {
