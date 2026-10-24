@@ -1,11 +1,9 @@
-import Sparkles from '../ui/Sparkles'
 
-// Shared wrapper: sparkle divider, "[01 — EXPERIENCE]" label, title, content.
+// Shared wrapper: "[01 — EXPERIENCE]" label, title, content.
 export default function Section({ id, number, label, title, intro, className = '', children }) {
   return (
     <section className={`section ${className}`} id={id}>
       <div className="container">
-        <Sparkles />
         <header className="section__head">
           <p className="section__label">[{String(number).padStart(2, '0')} — {label}]</p>
           <h2 className="section__title">{title}</h2>

@@ -1,14 +1,12 @@
 import { profile } from '@content/profile'
 import { EnvelopeSimple, GithubLogo, LinkedinLogo } from '../ui/icons'
 import ProtectedEmail from '../ui/ProtectedEmail'
-import Sparkles from '../ui/Sparkles'
 
 export default function Contact({ id, number, label }) {
   const [lead, last] = splitLastWord(profile.contactHeading)
   return (
     <section className="section contact" id={id}>
       <div className="container">
-        <Sparkles />
         <div className="contact__inner">
           <p className="section__label">[{String(number).padStart(2, '0')} — {label}]</p>
           <h2 className="contact__title">

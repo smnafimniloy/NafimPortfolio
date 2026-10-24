@@ -93,6 +93,9 @@
 
 /* ── Sections ─────────────────────────────── */
 .section { padding: var(--section-gap) 0 0; }
+@media (min-width: 720px) {
+  .section { padding-top: 120px; }   /* room between sections (no divider row) */
+}
 
 /* Everything after the hero sits on crumpled newsprint (page-level texture only) */
 .paper {
@@ -103,18 +106,6 @@
   background-position: center top;
   border-top: 1px solid var(--ink);
   padding-bottom: var(--section-gap);
-}
-
-/* Row of four-pointed sparkles between sections */
-.sparkles {
-  display: flex;
-  justify-content: center;
-  gap: var(--s-72);
-  margin-bottom: var(--s-72);
-}
-.sparkles svg { width: 20px; height: 20px; }
-@media (max-width: 719px) {
-  .sparkles { gap: 36px; margin-bottom: var(--s-50); }
 }
 
 .section__head { margin-bottom: var(--s-50); }

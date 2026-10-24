@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Press Kit
-description: Monochrome typographic portfolio for S M Nafim Niloy. Black ink on white, oversized grotesque headlines, bracketed monospace captions, sparkle dividers and one sheet of crumpled paper. Adapted from a press-kit style reference (refero.design) using only free fonts.
+description: Monochrome typographic portfolio for S M Nafim Niloy. Black ink on white, oversized grotesque headlines, bracketed monospace captions and one sheet of crumpled paper. Adapted from a press-kit style reference (refero.design) using only free fonts.
 colors:
   primary: "#121212"
   on-primary: "#FFFFFF"
@@ -181,8 +181,8 @@ Emphasised words in headlines (`<em>`) are plain ink: no colour, no italics.
 
 - Centered container, max 1200px, 16px side gutter on phones and 40px from
   tablet up.
-- Sections are 72px apart, introduced by a centered row of five sparkles
-  (72px gaps), then a bracketed mono label and an all-caps heading. 50px
+- Sections are 120px apart (72px on phones), each opening with a bracketed
+  mono label and an all-caps heading; no divider ornament between them. 50px
   between the heading and the content.
 - Hero: bracketed availability caption → oversized two-line name → a grid
   with the subtitle, bio and buttons on the left and the info card (avatar,
@@ -238,7 +238,6 @@ monochrome, and every one stops under `prefers-reduced-motion: reduce`.
 - **Tags:** newsprint pill-ish chip (20px radius), Space Mono 13px.
 - **Status badge:** mono caps. Finished work (Published / Accepted /
   Presented) is solid ink; work in progress is an ink outline.
-- **Sparkle divider:** five four-pointed sparkles, 20px, 72px apart.
 - **Annotation:** Rock Salt word inside a hand-drawn ink ellipse (SVG path).
 - **Icons:** Phosphor Light, `currentColor` ink.
 
