@@ -3,7 +3,7 @@ import { GithubLogo, LinkedinLogo, EnvelopeSimple } from '../ui/icons'
 import ProtectedEmail from '../ui/ProtectedEmail'
 import Wordmark from './Wordmark'
 
-const city = profile.location.split(',')[0].trim()
+// const city = profile.location.split(',')[0].trim()
 
 export default function Footer() {
   return (
