@@ -58,7 +58,7 @@ export const publications = [
     conference: "ICRPSET 2026",
     conferenceLink: "https://csa.ru.ac.bd/icrpset/2026/",
     doi: "",
-    status: "Submitted",
+    status: "Accepted",
     date: "",
     tags: ["Computer Vision", "CNN", "Vision Transformer", "Transfer Learning"],
   },
