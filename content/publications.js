@@ -14,7 +14,7 @@ export const publications = [
     conference: "NetMAHIB",
     conferenceLink: "https://link.springer.com/journal/13721",
     doi: "",
-    status: "Under Review",
+    status: "Accepted",
     date: "",
     tags: ["GNN", "Graph Neural Networks", "PyTorch", "Python"],
   },
