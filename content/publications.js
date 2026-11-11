@@ -22,8 +22,8 @@ export const publications = [
     title:
       "Heterogeneous Lesion Graph Network for Diabetic Retinopathy Grading: An Exploratory Study of Spatial Lesion Interaction Modeling",
     type: "Journal",
-    conference: "JSCDM",
-    conferenceLink: "https://journal.uthm.edu.my/index.php/jscdm/index",
+    conference: "Engineering Reports",
+    conferenceLink: "https://onlinelibrary.wiley.com/journal/25778196",
     doi: "",
     status: "Submitted",
     date: "",
